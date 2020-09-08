@@ -123,6 +123,7 @@ class Apiuser extends CI_Controller {
 
 //-----------------------------------------------//
 
+
 //-----------------------------------------------//
 
 	public function profile_update()
@@ -182,6 +183,75 @@ class Apiuser extends CI_Controller {
 		move_uploaded_file($_FILES['user_pic']['tmp_name'], $profilepic);
 
 		$data['result']=$this->apiusermodel->Profilepic_update($user_id,$userFileName);
+		$response = $data['result'];
+		echo json_encode($response);
+	}
+
+//-----------------------------------------------//
+
+
+//-----------------------------------------------//
+
+	public function profile_details()
+	{
+	   $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+		if(!$this->checkMethod())
+		{
+			return FALSE;
+		}
+
+		if($_POST == FALSE)
+		{
+			$res = array();
+			$res["opn"] = "Login";
+			$res["scode"] = 204;
+			$res["message"] = "Input error";
+
+			echo json_encode($res);
+			return;
+		}
+
+		$user_id = '';	
+		$user_id = $this->input->post("user_id");
+
+		$data['result']=$this->apiusermodel->Profile_details($user_id);
+
+		$response = $data['result'];
+		echo json_encode($response);
+	}
+
+//-----------------------------------------------//
+
+
+
+//-----------------------------------------------//
+
+	public function list_language()
+	{
+	  // $_POST = json_decode(file_get_contents("php://input"), TRUE);
+
+		if(!$this->checkMethod())
+		{
+			return FALSE;
+		}
+
+		if($_POST == FALSE)
+		{
+			$res = array();
+			$res["opn"] = "Login";
+			$res["scode"] = 204;
+			$res["message"] = "Input error";
+
+			echo json_encode($res);
+			return;
+		}
+
+		$user_id = '';	
+		$user_id = $this->input->post("user_id");
+
+		$data['result']=$this->apiusermodel->List_language($user_id);
+
 		$response = $data['result'];
 		echo json_encode($response);
 	}
