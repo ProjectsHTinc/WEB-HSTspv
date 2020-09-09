@@ -94,6 +94,10 @@ Class Newsfeedmodel extends CI_Model
 				$res_gal   = $this->db->query($gall_img);
               }
             }
+			
+			$update_sql= "UPDATE news_feed SET gallery_status ='1' WHERE id='$news_id'";
+			$update_result = $this->db->query($update_sql);
+			
           if ($res_gal) {
              $data=array("status"=>"success","text"=>"Gallery Added Successfully","class"=>"alert alert-success","url"=>base_url().'newsfeed/news_gallery/'.$enc_newsid);
               return $data;
