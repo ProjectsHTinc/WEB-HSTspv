@@ -1,4 +1,5 @@
 <?php foreach($result as $rows){} ?>
+<?php foreach($desc_result as $desc){ } ?>
 <div class="content">
 	<!-- Start Content-->
 	<div class="container-fluid">
@@ -34,6 +35,17 @@
 <?php } ?>
 					<form action="<?php echo base_url(); ?>spv/update_award" method="post" enctype="multipart/form-data" id="add_award" name="add_award" class="form">
 
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label class="col-form-label">Award Description (Tamil)</label>
+								<textarea id="tDesc" name='tDesc' class="form-control" rows="3"><?php echo $desc->awards_text_ta; ?></textarea>
+							</div>
+							<div class="form-group col-md-6">
+								<label class="col-form-label">Award Description (English)</label>
+							   <textarea id="eDesc" name='eDesc' class="form-control" rows="3"><?php echo $desc->awards_text_en; ?></textarea>
+							</div>
+						</div>
+						<hr>
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Award Date</label>
@@ -86,11 +98,15 @@ $('#menu4').addClass('active');
 
 $('#add_award').validate({ // initialize the plugin
      rules: {
+		 tDesc:{required:true },
+		 eDesc:{required:true },
 		 nfDate:{required:true },
 		 tDeatil:{required:true },
 		 eDeatil:{required:true }
      },
      messages: {
+		  tDesc: "Enter Tamil Description",
+		  eDesc: "Enter English  Description",
 		  nfDate: "Select Award Date",
 		  tDeatil: "Enter Tamil Details",
 		  eDeatil: "Enter English Details"

@@ -1,4 +1,4 @@
-
+<?php foreach($desc_result as $desc){ } ?>
 <div class="content">
 	<!-- Start Content-->
 	<div class="container-fluid">
@@ -36,6 +36,17 @@
 
 						<div class="form-row">
 							<div class="form-group col-md-6">
+								<label class="col-form-label">Award Description (Tamil)</label>
+								<textarea id="tDesc" name='tDesc' class="form-control" rows="3"><?php echo $desc->awards_text_ta; ?></textarea>
+							</div>
+							<div class="form-group col-md-6">
+								<label class="col-form-label">Award Description (English)</label>
+							   <textarea id="eDesc" name='eDesc' class="form-control" rows="3"><?php echo $desc->awards_text_en; ?></textarea>
+							</div>
+						</div>
+						<hr>
+						<div class="form-row">
+							<div class="form-group col-md-6">
 								<label class="col-form-label">Award Date</label>
 								<input type="text" class="form-control" placeholder="DD-MM-YYYY" id="nfDate" name="nfDate">
 							</div>
@@ -56,7 +67,6 @@
 						</div>
 						
 						 <div class="form-row">
-							 
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Status</label>
 							   <select id="nStatus" name="nStatus" class="form-control">
@@ -119,11 +129,15 @@ $('#menu4').addClass('active');
 
 $('#add_award').validate({ // initialize the plugin
      rules: {
+		 tDesc:{required:true },
+		 eDesc:{required:true },
 		 nfDate:{required:true },
 		 tDeatil:{required:true },
 		 eDeatil:{required:true }
      },
      messages: {
+		  tDesc: "Enter Tamil Description",
+		  eDesc: "Enter English  Description",
 		  nfDate: "Select Award Date",
 		  tDeatil: "Enter Tamil Details",
 		  eDeatil: "Enter English Details"

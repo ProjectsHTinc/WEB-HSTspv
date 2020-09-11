@@ -196,6 +196,7 @@ class Spv extends CI_Controller {
 			
 		if($user_type==1 || $user_type==2){
 			$datas['result'] = $this->spvmodel->get_awards();
+			$datas['desc_result'] = $this->spvmodel->get_awards_description();
 			$this->load->view('admin/header');
 			$this->load->view('admin/spv_awards',$datas);
 			$this->load->view('admin/footer');
@@ -210,23 +211,25 @@ class Spv extends CI_Controller {
 		$user_type = $this->session->userdata('user_type');
 			
 		if($user_type==1 || $user_type==2){
+			 $eDesc = $this->input->post('eDesc');
+			 $tDesc = $this->input->post('tDesc');
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
 			 $eDeatil = $this->input->post('eDeatil');
 			 $tDeatil = $this->input->post('tDeatil');
 			 $nStatus = $this->input->post('nStatus');
 			 
-			$data = $this->spvmodel->add_award($nfDate,$eDeatil,$tDeatil,$nStatus,$user_id);
+			$data = $this->spvmodel->add_award($eDesc,$tDesc,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id);
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
 			$this->session->set_flashdata('alert', $response_messge);
 			
 			$status = $data['status'];
 
 			if ($status == 'success'){
-				redirect(base_url().'spv/position/');
+				redirect(base_url().'spv/awards/');
 			}
 			else {
-				redirect(base_url().'spv/position/');
+				redirect(base_url().'spv/awards/');
 			}
 		}else {
 			redirect(base_url().'admin/');
@@ -240,6 +243,7 @@ class Spv extends CI_Controller {
 			
 		if($user_type==1 || $user_type==2){
 			$datas['result'] = $this->spvmodel->get_award_details($award_id);
+			$datas['desc_result'] = $this->spvmodel->get_awards_description();
 			$this->load->view('admin/header');
 			$this->load->view('admin/spv_awards_details',$datas);
 			$this->load->view('admin/footer');
@@ -255,13 +259,15 @@ class Spv extends CI_Controller {
 			
 		if($user_type==1 || $user_type==2){
 			 $aId = $this->input->post('award_id');
+			 $eDesc = $this->input->post('eDesc');
+			 $tDesc = $this->input->post('tDesc');
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
 			 $eDeatil = $this->input->post('eDeatil');
 			 $tDeatil = $this->input->post('tDeatil');
 			 $nStatus = $this->input->post('nStatus');
 			 
-			$data = $this->spvmodel->update_award($aId,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id);
+			$data = $this->spvmodel->update_award($eDesc,$tDesc,$aId,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id);
 
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
 			$this->session->set_flashdata('alert', $response_messge);

@@ -98,7 +98,17 @@ Class Spvmodel extends CI_Model
 		return $result=$res->result();
 	}
 	
-	function add_award($nfDate,$eDeatil,$tDeatil,$nStatus,$user_id){
+	function get_awards_description(){
+		$query="SELECT * FROM `spv_awards_description` WHERE id ='1'";
+		$res=$this->db->query($query);
+		return $result=$res->result();
+	}
+	
+	function add_award($eDesc,$tDesc,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id){
+		
+		$query="UPDATE spv_awards_description SET awards_text_ta='$tDesc',awards_text_en='$eDesc',updated_at=NOW(),updated_by='$user_id' WHERE id ='1'";
+		$result=$this->db->query($query);
+		
 		$query="INSERT INTO spv_awards (awards_date,awards_text_ta,awards_text_en,status,created_by,created_at) VALUES ('$nfDate','$tDeatil','$eDeatil','$nStatus','$user_id',NOW())";
 		$result=$this->db->query($query);
 		$last_id=$this->db->insert_id();
@@ -118,10 +128,13 @@ Class Spvmodel extends CI_Model
 		return $result=$res->result();
 	}
 	
-	function update_award($aId,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id){
+	function update_award($eDesc,$tDesc,$aId,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id){
 		
 		$id=base64_decode($aId)/98765;
 
+		$query="UPDATE spv_awards_description SET awards_text_ta='$tDesc',awards_text_en='$eDesc',updated_at=NOW(),updated_by='$user_id' WHERE id ='1'";
+		$result=$this->db->query($query);
+		
 		$query="UPDATE spv_awards SET awards_date ='$nfDate' ,awards_text_ta='$tDeatil',awards_text_en='$eDeatil',status='$nStatus',updated_at=NOW(),updated_by='$user_id' WHERE id ='$id'";
 		$result=$this->db->query($query);
 		
