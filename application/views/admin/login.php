@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="password" style="font-weight:bold;">Password</label>
-                                        <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" maxlength="30"><span toggle="#password" class="fa fa-fw  fa-eye-slash field-icon toggle-password"></span>
+                                        <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" maxlength="30"><span toggle="#password" class="fa fa-fw  fa-eye-slash field-icon toggle-password" style="cursor: pointer;"></span>
                                     </div>
                                     <div class="form-group mb-3">
                                         <p> <a href="<?php echo base_url(); ?>admin/forgot_password"  style="color:#1159a8;font-weight:bold;"><i class="fa fa-lock mr-1"></i>Forgot your password?</a></p>

@@ -40,15 +40,15 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label class="col-form-label">Current Password</label>
-								<input type="password" placeholder="Enter Current Password" name="old_password" id="old_password" class="form-control" value="" maxlength="10"><span toggle="#old_password" class="fa fa-fw  fa-eye-slash field-icon-inner toggle-password"></span>
+								<input type="password" placeholder="Enter Current Password" name="old_password" id="old_password" class="form-control" value="" maxlength="10"><span toggle="#old_password" class="fa fa-fw  fa-eye-slash field-icon-inner toggle-password" style="cursor: pointer;"></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label class="col-form-label">New Password</label>
-							   <input type="password" placeholder="Enter New Password" id="new_password" name="new_password" class="form-control input-sm" value="" maxlength="10"><span toggle="#new_password" class="fa fa-fw  fa-eye-slash field-icon-inner toggle-password"></span>
+							   <input type="password" placeholder="Enter New Password" id="new_password" name="new_password" class="form-control input-sm" value="" maxlength="10"><span toggle="#new_password" class="fa fa-fw  fa-eye-slash field-icon-inner toggle-password" style="cursor: pointer;"></span>
 							</div>
 							<div class="form-group col-md-3">
 								<label class="col-form-label">Confirm New Password</label>
-								<input type="password" placeholder="Confirm New Password" id="retype_password" name="retype_password" class="form-control input-sm" value="" maxlength="10"><span toggle="#retype_password" class="fa fa-fw  fa-eye-slash field-icon-inner toggle-password"></span>
+								<input type="password" placeholder="Confirm New Password" id="retype_password" name="retype_password" class="form-control input-sm" value="" maxlength="10"><span toggle="#retype_password" class="fa fa-fw  fa-eye-slash field-icon-inner toggle-password" style="cursor: pointer;"></span>
 							</div>
 							<div class="form-group col-md-3">
 								<input type="hidden" name="user_id" value="<?php echo $users->id; ?>">

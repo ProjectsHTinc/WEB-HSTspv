@@ -94,12 +94,16 @@
 								<input type="file" class="form-control" id="coverImage" name="coverImage">
 							</div>
 							 
-							<div class="form-group col-md-6">
+							<div class="form-group col-md-3">
 								<label class="col-form-label">Status</label>
 							   <select id="nStatus" name="nStatus" class="form-control">
 										<option value="Active">Active</option>
 										<option value="Inactive">Inactive</option>
 								</select>
+							</div>
+							<div class="form-group col-md-3">
+								<label class="col-form-label">Send Notification</label><br>
+							   <input type="radio" name="notification" value="Y" style="margin-top:10px;"> Yes &nbsp;&nbsp;<input type="radio" name="notification" value="N" checked> No
 							</div>
 						</div>
 					   <div class="form-row">

@@ -15,7 +15,24 @@ Class Newsfeedmodel extends CI_Model
 		return $result=$res->result();
 	}
 	
-	function add_newsfeed($nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id){
+	function add_newsfeed($nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$notification,$user_id){
+		
+		if ($notification == 'Y'){
+			
+			$sQuery = "SELECT A.id, A.full_name, B.device_token, B.device_type FROM `user_master` A, notification_master B WHERE A.id = B.user_master_id AND A.notification = '1' AND A.status = 'Active'";
+			$result = $this->db->query($sQuery);
+			if($result->num_rows()>0)
+			{
+				foreach ($result->result() as $rows)
+				{
+					$name = $rows->full_name;
+					$device_token = $rows->device_token;
+					$device_type = $rows->device_type;
+					$this->notificationmodel->sendNotification($device_token,$eTitle,$eDeatil,$PicName,$device_type);
+				}
+			}
+		}
+		
 		$query="INSERT INTO news_feed (nf_category_id,nf_profile_type,news_date,title_ta,title_en,description_ta,description_en,nf_cover_image,nf_video_token_id,status,created_by,created_at) VALUES ('$nfCategory','$nfProfile','$nfDate','$tTitle','$eTitle','$tDeatil','$eDeatil','$PicName','$vToken','$nStatus','$user_id',NOW())";
 		$result=$this->db->query($query);
 		$last_id=$this->db->insert_id();

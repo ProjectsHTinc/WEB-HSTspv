@@ -52,8 +52,10 @@ class Newsfeed extends CI_Controller {
 				move_uploaded_file($_FILES['coverImage']['tmp_name'], $coverpic);
 			}
 			$nStatus = $this->input->post('nStatus');
+			$notification = $this->input->post('notification');
 
-			$data = $this->newsfeedmodel->add_newsfeed($nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id);
+			$data = $this->newsfeedmodel->add_newsfeed($nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$notification,$user_id);
+			//$notification = $this->newsfeedmodel->send_notification($nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id);
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
 			$this->session->set_flashdata('alert', $response_messge);
 			

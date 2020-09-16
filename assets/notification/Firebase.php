@@ -19,7 +19,7 @@ class Firebase {
 
     private function sendPushNotification($fields) {
         
-        $server_key='AAAAek2UXuk:APA91bHITvTMoAleO-AnIJIwmcgmZMAsZvmy17LC9eQEfbVQmFTgAZhpqqjpCg0NH8VhVH_7il2r9hCHm_e8XVE6-hDFmHCMwef2qg7QfoxYla_WQlepQXplk_VrgEYdVsD_QkjL91Ih';
+        $server_key='AAAAh-SfO2o:APA91bGOXlPOPazHaW8zi3ZcLAkba44BbueGfVbf98TDRYow7Os-U5-RrWFbzuyX9HNGxJV93QYrEEghwWnfuo4VSsxSErbBoHKPJzCvT7csZuz0b-NEY19nQEscdcizLGApkB-CuA3u';
         //firebase server url to send the curl request
         $url = 'https://fcm.googleapis.com/fcm/send';
  
