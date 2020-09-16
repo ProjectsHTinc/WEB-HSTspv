@@ -1,37 +1,39 @@
+<?php
+	$user_pic = $this->session->userdata('user_pic');
+	$user_type = $this->session->userdata('user_type');
+	$disp_name = $this->session->userdata('name');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <title>SPV - Admin </title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/images/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/plugins/images/favicon.ico">
 	   
-	   <!-- Plugins css -->
-	   	<link href="<?php echo base_url(); ?>assets/admin/libs/bootstrap-datepicker/bootstrap-datepicker.css" rel="stylesheet">
-		
-        <link href="<?php echo base_url(); ?>assets/admin/libs/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>assets/admin/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>assets/admin/libs/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo base_url(); ?>assets/admin/libs/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" />
-		<link href="<?php echo base_url(); ?>assets/admin/libs/magnific-popup/magnific-popup.css" rel="stylesheet" />
-		<link href="<?php echo base_url(); ?>assets/admin/libs/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
-	   
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+
 	   <!-- Bootstrap Css -->
-        <link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/css/bootstrap.min.css" id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="<?php echo base_url(); ?>assets/admin/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="<?php echo base_url(); ?>assets/admin/css/app.min.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/css/app.min.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
 	
-		<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet"> 
+		<!-- Plugins css -->
+	   	<link href="<?php echo base_url(); ?>assets/plugins/libs/bootstrap-datepicker/bootstrap-datepicker.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>assets/plugins/libs/datatables/dataTables.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/libs/datatables/responsive.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/libs/datatables/buttons.bootstrap4.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/libs/datatables/select.bootstrap4.css" rel="stylesheet" type="text/css" />
+		<link href="<?php echo base_url(); ?>assets/plugins/libs/magnific-popup/magnific-popup.css" rel="stylesheet" />
+		<link href="<?php echo base_url(); ?>assets/plugins/libs/toastr/toastr.min.css" rel="stylesheet" type="text/css" />
 		
-		<script src="<?php echo base_url(); ?>assets/admin/js/jquery/jquery.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/admin/js/jquery/jquery.validate.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/admin/js/jquery/additional-methods.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/jquery.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/jquery.validate.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/additional-methods.min.js"></script>
 
     </head>
 
@@ -64,8 +66,8 @@
 
                             <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                    <img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" alt="user-image" class="rounded-circle">
-                                    <span class="pro-user-name ml-1">Admin <i class="mdi mdi-chevron-down"></i> </span>
+                                    <img src="<?php echo base_url(); ?>assets/users/<?php echo $user_pic; ?>" alt="user-image" class="rounded-circle">
+                                    <span class="pro-user-name ml-1"><?php echo $disp_name; ?><i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 
@@ -90,20 +92,13 @@
 
                                 </div>
                             </li>
-
-                            
-
                         </ul>
 
                         <!-- LOGO -->
                         <div class="logo-box">
-                            <a href="index.html" class="logo logo-light">
-                                <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/admin/images/logo-light.png" alt="" height="16">
-                                </span>
-                                <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/admin/images/logo-sm.png" alt="" height="24">
-                                </span>
+                            <a href="index.html" class="logo logo-light" style="font-size:30px;color:#ffffff;">
+                                <span class="logo-lg">SP Velumani</span>
+                                <span class="logo-sm">SPV</span>
                             </a>
                         </div>
 
@@ -199,19 +194,20 @@
                                         </li>
                                     </ul>
                                 </li>
-
+<?php if ($user_type =='1'){ ?>
 								<li id="menu6" class="has-submenu">
-                                    <a href="#"> <i class="mdi mdi-account-multiple"></i>User Management  <div class="arrow-down"></div></a>
+                                    <a href="<?php echo base_url(); ?>users/admin/"> <i class="mdi mdi-account-multiple"></i>User Management  <div class="arrow-down"></div></a>
                                     <ul class="submenu">
+										<li>
+                                            <a href="<?php echo base_url(); ?>users/admin/">Admin Users</a>
+                                        </li>
                                         <li>
                                             <a href="<?php echo base_url(); ?>users/application/">Application Users</a>
                                         </li>
-                                        <li>
-                                            <a href="<?php echo base_url(); ?>users/admin/">Admin Users</a>
-                                        </li>
+                                        
                                     </ul>
                                 </li>
-
+<?php } ?>
                             </ul>
                             <!-- End navigation menu -->
 

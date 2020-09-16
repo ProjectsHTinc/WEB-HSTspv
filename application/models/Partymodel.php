@@ -6,6 +6,7 @@ Class Partymodel extends CI_Model
 	  parent::__construct();
 		$this->load->model('mailmodel');
 		$this->load->model('smsmodel');
+		$this->load->model('notificationmodel');
 	}
 
 	function get_party_history(){

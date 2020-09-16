@@ -109,10 +109,10 @@ class Admin extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			$datas['res'] = $this->adminmodel->profile($user_id);
 			$this->load->view('admin/header');
-			$this->load->view('profile',$datas);
+			$this->load->view('admin/profile',$datas);
 			$this->load->view('admin/footer');
 		}else {
-			redirect(base_url());
+			redirect(base_url().'admin/');
 		}
 	}
 
@@ -122,40 +122,47 @@ class Admin extends CI_Controller {
 		$user_type=$this->session->userdata('user_type');
 
 		if($user_type==1 || $user_type==2){
-			$user_id= $this->input->post('user_id');
-			$name=$this->input->post('name');
-			$address= $this->db->escape_str($this->input->post('address'));
-			$phone=$this->input->post('phone');
-			$email=$this->input->post('email');
-			$gender=$this->input->post('gender');
+			$staff_id= $this->input->post('staff_id');
 			$user_old_pic=$this->input->post('user_old_pic');
-			$profilepic = $_FILES['profile_pic']['name'];
 			
-			if(empty($profilepic)){
-				$staff_prof_pic=$user_old_pic;
-			}else{
-				$temp = pathinfo($profilepic, PATHINFO_EXTENSION);
-				$staff_prof_pic = round(microtime(true)) . '.' . $temp;
-				$uploaddir = 'assets/users/';
-				$profilepic = $uploaddir.$staff_prof_pic;
-				move_uploaded_file($_FILES['profile_pic']['tmp_name'], $profilepic);
-			}
-			
-			$datas=$this->adminmodel->profile_update(strtoupper($name),strtoupper($address),$phone,strtoupper($email),$gender,$staff_prof_pic,$user_id);
+			 $name = $this->input->post('name');
+			 $email = $this->input->post('email');
+			 $phone = $this->input->post('phone');
+			 $gender = $this->input->post('gender');
+			 $qualification = $this->input->post('qualification');
 
-			if($datas['status']=="success"){
-				$this->session->set_flashdata('msg', 'Profile Updated');
-				redirect(base_url().'login/profile');
+			$profilePic = $_FILES["profilePic"]["name"];
+			if(empty($profilePic)){
+				$PicName=$user_old_pic;
 			}else{
-				$this->session->set_flashdata('msg', 'Failed');
-				redirect(base_url().'login/profile');
+				$temp1 = pathinfo($profilePic, PATHINFO_EXTENSION);
+				$PicName = 'profile_'.round(microtime(true)) . '.' . $temp1;
+				$uploaddir = 'assets/users/';
+				$coverpic = $uploaddir.$PicName;
+				move_uploaded_file($_FILES['profilePic']['tmp_name'], $coverpic);
+			}
+			$address = $this->input->post('address');
+			
+			$data = $this->adminmodel->profile_update($staff_id,$name,$email,$phone,$gender,$qualification,$PicName,$address,$user_id);
+			
+			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
+			$this->session->set_flashdata('alert', $response_messge);
+			
+			$status = $data['status'];
+
+			if ($status == 'success'){
+				redirect(base_url().'admin/profile/');
+			}
+			else {
+				redirect(base_url().'admin/profile/');
 			}
 	 } else {
-			redirect(base_url());
+			redirect(base_url().'admin/');
 	 }
 	}
 
-	public function password(){
+
+	public function changepassword(){
 		$datas=$this->session->userdata();
 		$user_id=$this->session->userdata('user_id');
 		$user_type=$this->session->userdata('user_type');
@@ -163,7 +170,7 @@ class Admin extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			$datas['res'] = $this->adminmodel->profile($user_id);
 			$this->load->view('admin/header');
-			$this->load->view('password',$datas);
+			$this->load->view('admin/change_password',$datas);
 			$this->load->view('admin/footer');
 		}else {
 			redirect(base_url());
@@ -178,7 +185,7 @@ class Admin extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 				$user_id  = $this->uri->segment(3);
 				$old_password=$this->input->post('old_password');
-				$datas['res']=$this->adminmodel->check_password_match(strtoupper($old_password),$user_id);
+				$datas['res']=$this->adminmodel->check_password_match($old_password,$user_id);
 		}else{
 			redirect('/');
 		}
@@ -193,14 +200,18 @@ class Admin extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			
 				$new_password=$this->input->post('new_password');
-				$datas=$this->adminmodel->password_update(strtoupper($new_password),$user_id,$user_type);
+				$data=$this->adminmodel->password_update($new_password,$user_id,$user_type);
 
-				if($datas['status']=="success"){
-					$this->session->set_flashdata('msg', 'Your password has been reset.');
-					redirect(base_url().'login/password');
-				}else{
-					$this->session->set_flashdata('msg', 'Failed to Update');
-					redirect(base_url().'login/password');
+				$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
+				$this->session->set_flashdata('alert', $response_messge);
+				
+				$status = $data['status'];
+
+				if ($status == 'success'){
+					redirect(base_url().'admin/changepassword/');
+				}
+				else {
+					redirect(base_url().'admin/changepassword/');
 				}
 				
 		}else{

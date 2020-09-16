@@ -6,6 +6,7 @@ Class Adminmodel extends CI_Model
 	  parent::__construct();
 		$this->load->model('mailmodel');
 		$this->load->model('smsmodel');
+		$this->load->model('notificationmodel');
 	}
 
 	function login($username,$password)
@@ -77,14 +78,14 @@ Class Adminmodel extends CI_Model
      }
 
 	function profile($user_id){
-		$query="SELECT * FROM `user_master` WHERE id='$user_id'";
+		$query="SELECT * FROM `admin_user_master` WHERE id='$user_id'";
 		$resultset=$this->db->query($query);
 		return $resultset->result();
 	}
 	
-	function profile_update($name,$address,$phone,$email,$gender,$staff_prof_pic,$user_id){
+	function profile_update($staff_id,$name,$email,$phone,$gender,$qualification,$PicName,$address,$user_id){
 		
-		$sQuery = "SELECT * FROM user_master WHERE id = '$user_id'";
+		$sQuery = "SELECT * FROM admin_user_master WHERE id = '$staff_id'";
 		$user_result = $this->db->query($sQuery);
 		$ress = $user_result->result();
 		if($user_result->num_rows()>0)
@@ -93,83 +94,55 @@ Class Adminmodel extends CI_Model
 			{
 				$old_email_id = $rows->email_id;
 				$old_phone = $rows->phone_number;
+				$old_profile_pic = $rows->profile_pic;
 			}
 		}
-		
-		if ($email!="")
-		{
-			if ($old_email_id != $email){
-			
-				 $update = "UPDATE user_master SET full_name='$name',gender='$gender',address='$address',email_id='$email',profile_pic='$staff_prof_pic',updated_at=NOW(),updated_by='$user_id' WHERE id='$user_id'";
-				$result = $this->db->query($update);
-				$subject ='GMS - Staff Login - Username Updated';
-				$htmlContent = '<html>
-								<head> <title></title>
-								</head>
-								<body>
-								<p>Hi  '.$name.'</p>
-								<p>Login Details</p>
-								<p>Email: '.$email.'</p>
-								<p></p>
-								<p><a href="'.base_url() .'">Click here to Login</a></p>
-								</body>
-								</html>';
-				
-				$smsContent = 'Hi  '.$name.' Your Account Email : '.$email.' is updated.';
-				$this->mailmodel->sendEmail($email,$subject,$htmlContent);
-				$this->smsmodel->sendSMS($phone,$smsContent);			
-			}else {
-				$update = "UPDATE user_master SET full_name='$name',gender='$gender',address='$address',profile_pic='$staff_prof_pic',updated_at=NOW(),updated_by='$user_id' WHERE id='$user_id'";
-				$result = $this->db->query($update);
+
+		if ($PicName != $old_profile_pic ){
+			$file_to_delete = 'assets/users/'.$old_profile_pic;
+			unlink($file_to_delete);
+		}
+
+		if ($old_email_id != $email){
+
+			$update_user="UPDATE admin_user_master SET full_name='$name',email_id='$email',phone_number='$phone',gender='$gender',address='$address',qualification='$qualification',profile_pic='$PicName',updated_at=NOW(),updated_by='$user_id' WHERE id='$staff_id'";
+			$result_user=$this->db->query($update_user);
+
+			$subject ='GMS - Staff Login - Email Updated';
+			$htmlContent = '<html>
+							<head> <title></title>
+							</head>
+							<body>
+							<p>Hi  '.$name.'</p>
+							<p>Login Details</p>
+							<p>New Email: '.$email.'</p>
+							<p></p>
+							<p><a href="'.base_url() .'">Click here to Login</a></p>
+							</body>
+							</html>';
+
+			$smsContent = 'Hi  '.$name.' Your Account Email : '.$email.' is updated.';
+
+			//$this->mailmodel->sendEmail($email,$subject,$htmlContent);
+			//$this->smsmodel->sendSMS($mobile,$smsContent);
+		}else {
+			$update_user="UPDATE admin_user_master SET full_name='$name',email_id='$email',phone_number='$phone',gender='$gender',address='$address',qualification='$qualification',profile_pic='$PicName',updated_at=NOW(),updated_by='$user_id' WHERE id='$staff_id'";
+			$result_user=$this->db->query($update_user);
+		}
+
+		if($result_user){
+				$data=array("status"=>"success","text"=>"Profile Updated Successfully","class"=>"alert alert-success");
+			}else{
+				$data=array("status"=>"error","text"=>"Something went wrong","class"=>"alert alert-danger");
 			}
-		}
-		
-		if  ($phone!=""){  
-				if ($old_phone != $phone) {
-					$update = "UPDATE user_master SET full_name='$name',gender='$gender',address='$address',phone_number='$phone',updated_at=NOW(),updated_by='$user_id' WHERE id='$user_id'";
-					$result = $this->db->query($update);
-					$subject ='GMS - Staff Login - Phone number Updated';
-					$htmlContent = '<html>
-									<head> <title></title>
-									</head>
-									<body>
-									<p>Hi  '.$name.'</p>
-									<p>Login Details</p>
-									<p>New Phone number: '.$phone.'</p>
-									<p></p>
-									<p><a href="'.base_url() .'">Click here to Login</a></p>
-									</body>
-									</html>';
-					
-					$smsContent = 'Hi  '.$name.' Your Account Phone number : '.$phone.' is updated.';
-					
-					$this->mailmodel->sendEmail($email,$subject,$htmlContent);
-					$this->smsmodel->sendSMS($phone,$smsContent);
-				} else {
-					$update = "UPDATE user_master SET full_name='$name',gender='$gender',address='$address',profile_pic='$staff_prof_pic',updated_at=NOW(),updated_by='$user_id' WHERE id='$user_id'";
-					$result = $this->db->query($update);
-				}
-		}
-		
-		if ($email =="" && $phone =="")
-		{
-			 $update = "UPDATE user_master SET full_name='$name',gender='$gender',address='$address',profile_pic='$staff_prof_pic',updated_at=NOW(),updated_by='$user_id' WHERE id='$user_id'";
-			$result = $this->db->query($update);
-		}
-		
-		if ($result) {
-		  $data = array("status" => "success");
-		} else {
-		  $data = array("status" => "failed");
-		}
-		return $data;
+			return $data;
 	}
 	
 	
 	
 	function check_password_match($old_password,$user_id){
 		$pwd=md5($old_password);
-		$select="SELECT * FROM user_master WHERE password='$pwd' AND id='$user_id'";
+		$select="SELECT * FROM admin_user_master WHERE password='$pwd' AND id='$user_id'";
 		$result=$this->db->query($select);
 	   if($result->num_rows()==0){
 			echo "false";
@@ -180,10 +153,10 @@ Class Adminmodel extends CI_Model
 	   
 	function password_update($new_password,$user_id,$user_type){
 		$pwd = md5($new_password);
-		$query="UPDATE user_master SET password='$pwd', updated_at=NOW() WHERE id='$user_id'";
-		$ex = $this->db->query($query);
+		$query="UPDATE admin_user_master SET password='$pwd', updated_at=NOW() WHERE id='$user_id'";
+		$ex_query = $this->db->query($query);
 		
-		$sQuery = "SELECT * FROM user_master WHERE `id` = '$user_id'";
+		$sQuery = "SELECT * FROM admin_user_master WHERE `id` = '$user_id'";
 		$user_result = $this->db->query($sQuery);
 		$ress = $user_result->result();
 		if($user_result->num_rows()>0)
@@ -195,7 +168,7 @@ Class Adminmodel extends CI_Model
 				 $mobile = $rows->phone_number;
 			}
 
-		$subject ='M3 - Password Update';
+		$subject ='SPV - Password Update';
 		$htmlContent = '<html>
 							<head> <title></title>
 							</head>
@@ -207,16 +180,16 @@ Class Adminmodel extends CI_Model
 			
 			$smsContent = 'Hi  '.$name.' Your Password Updated Sucessfully!';
 			
-			$this->mailmodel->sendEmail($email,$subject,$htmlContent);
+			//$this->mailmodel->sendEmail($email,$subject,$htmlContent);
 			//$this->smsmodel->sendSMS($mobile,$smsContent);
 		}
 		
-		if ($ex) {
-		  $datas = array("status" => "success");
+		if ($ex_query) {
+			$data=array("status"=>"success","text"=>"Password Updated Successfully","class"=>"alert alert-success");
 		} else {
-		  $datas = array("status" => "failed");
+			$data=array("status"=>"error","text"=>"Something went wrong","class"=>"alert alert-danger");
 		}
-		 return $datas;
+		 return $data;
 	}
 	
 }

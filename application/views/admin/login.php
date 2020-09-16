@@ -8,24 +8,25 @@
         <meta content="Coderthemes" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/admin/images/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/plugins/images/favicon.ico">
+
+		<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
 
         <!-- Bootstrap Css -->
-        <link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/css/bootstrap.min.css" id="bootstrap-stylesheet" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="<?php echo base_url(); ?>assets/admin/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo base_url(); ?>assets/plugins/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="<?php echo base_url(); ?>assets/admin/css/app.min.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
-		
-		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@600&display=swap" rel="stylesheet"> 
+        <link href="<?php echo base_url(); ?>assets/plugins/css/app.min.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
+			
     </head>
-    <body >
+    <body>
         <div class="account-pages mt-5 mb-5">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="text-center" style="padding-bottom:50px;">
-								<img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" alt="user-image" class="rounded-circle" width="75px;" height="75px;"><span style="font-size:35px;font-weight:bold;margin-left:20px;">S.P. Velumani</span>
+								<img src="<?php echo base_url(); ?>assets/plugins/images/users/user-11.jpg" alt="user-image" class="rounded-circle" width="75px;" height="75px;"><br><span style="font-size:35px;font-weight:bold;margin-left:20px;">S.P. Velumani</span>
                         </div>
                         <div class="card login_shadows">
                             <div class="card-body p-4">
@@ -41,11 +42,11 @@
 								<form action="<?php echo base_url(); ?>admin/login_check" method="post" class="form" id="login_form" name="login_form" >
                                     <div class="form-group mb-3">
                                         <label for="emailaddress" style="font-weight:bold;">Email address</label>
-                                        <input class="form-control" type="email" id="username" name="username" placeholder="Enter your email">
+                                        <input class="form-control" type="email" id="username" name="username" placeholder="Enter your email" maxlength="80">
                                     </div>
                                     <div class="form-group mb-3">
                                         <label for="password" style="font-weight:bold;">Password</label>
-                                        <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password">
+                                        <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" maxlength="30"><span toggle="#password" class="fa fa-fw  fa-eye-slash field-icon toggle-password"></span>
                                     </div>
                                     <div class="form-group mb-3">
                                         <p> <a href="<?php echo base_url(); ?>admin/forgot_password"  style="color:#1159a8;font-weight:bold;"><i class="fa fa-lock mr-1"></i>Forgot your password?</a></p>
@@ -66,12 +67,12 @@
         <!-- end page -->
     
         <!-- Vendor js -->
-        <script src="<?php echo base_url(); ?>assets/admin/js/vendor.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/js/vendor.min.js"></script>
 
         <!-- App js -->
-        <script src="<?php echo base_url(); ?>assets/admin/js/app.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/admin/js/jquery/jquery.min.js"></script>
-		<script src="<?php echo base_url(); ?>assets/admin/js/jquery/jquery.validate.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/js/app.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/js/jquery/jquery.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/jquery.validate.min.js"></script>
 		
     </body>
 	

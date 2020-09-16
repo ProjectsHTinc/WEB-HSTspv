@@ -17,19 +17,19 @@
 
 
  <!-- Vendor js -->
-        <script src="<?php echo base_url(); ?>assets/admin/js/vendor.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/js/vendor.min.js"></script>
 
 		<!-- Plugins Js -->
-        <script src="<?php echo base_url(); ?>assets/admin/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/libs/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 		  
-        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables/jquery.dataTables.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/admin/libs/datatables/dataTables.bootstrap4.js"></script>
-		<script src="<?php echo base_url(); ?>assets/admin/libs/datatables/dataTables.responsive.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/libs/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/libs/datatables/dataTables.bootstrap4.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/libs/datatables/dataTables.responsive.min.js"></script>
 		
-		<script src="<?php echo base_url(); ?>assets/admin/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 		
-		<script src="<?php echo base_url(); ?>assets/admin/libs/toastr/toastr.min.js"></script>
-        <script src="<?php echo base_url(); ?>assets/admin/js/pages/toastr.init.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/libs/toastr/toastr.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/js/pages/toastr.init.js"></script>
 
 		<script>
 			jQuery("#nfDate").datepicker({
@@ -45,6 +45,6 @@
 		</script>
 		
   <!-- App js -->
-        <script src="<?php echo base_url(); ?>assets/admin/js/app.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/plugins/js/app.min.js"></script>
     </body>
 </html>
