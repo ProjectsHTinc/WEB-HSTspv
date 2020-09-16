@@ -26,7 +26,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-8 col-lg-6 col-xl-5">
                         <div class="text-center" style="padding-bottom:50px;">
-								<img src="<?php echo base_url(); ?>assets/plugins/images/users/user-11.jpg" alt="user-image" class="rounded-circle" width="75px;" height="75px;"><br><span style="font-size:35px;font-weight:bold;margin-left:20px;">S.P. Velumani</span>
+								<img src="<?php echo base_url(); ?>assets/plugins/images/spv_pic.png" alt="user-image" class="rounded-circle" width="80px;" height="80px;"><br><span style="font-size:35px;font-weight:bold;margin-left:20px;">S.P. Velumani</span>
                         </div>
                         <div class="card login_shadows">
                             <div class="card-body p-4">
