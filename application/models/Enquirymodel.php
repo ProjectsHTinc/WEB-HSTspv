@@ -9,7 +9,6 @@ Class Enquirymodel extends CI_Model
 		$this->load->model('notificationmodel');
 	}
 
-	
 	function latest_enquiry(){
 		$query="SELECT B.full_name, A.* FROM spv_chat A, user_master B WHERE A.chat_for = B.id AND A.admin_seen = 0 ORDER BY A.id DESC";
 		$res=$this->db->query($query);

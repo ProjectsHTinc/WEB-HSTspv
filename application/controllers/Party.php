@@ -34,8 +34,10 @@ class Party extends CI_Controller {
 
 			 $nfId = $this->input->post('nfId');
 			 $old_banner = $this->input->post('old_banner');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
 					 
 			if(empty($coverImage)){
@@ -89,8 +91,10 @@ class Party extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 
 			 $nfId = $this->input->post('nfId');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			
 			$data = $this->partymodel->update_party_ideology($nfId,$eDeatil,$tDeatil,$user_id);
 			

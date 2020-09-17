@@ -1,3 +1,6 @@
+
+
+
 <div class="content">
 
 	<!-- Start Content-->
@@ -40,7 +43,7 @@
 					<div class="widget-chart-1">
 						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_1.png" alt=""></div>
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> 150 </h2>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['post_count']; ?> </h2>
 							<p class="text-muted mb-1" style="font-size:16px;">Total Posts</p>
 						</div>
 					</div>
@@ -65,7 +68,7 @@
 					<div class="widget-chart-1">
 						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_2.png" alt=""></div>
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> 300 </h2>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['event_count']; ?> </h2>
 							<p class="text-muted mb-1" style="font-size:16px;">Total Events</p>
 						</div>
 					</div>
@@ -91,7 +94,7 @@
 						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_3.png" alt=""></div>
 
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> 20 </h2>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['enquiry_count']; ?> </h2>
 							<p class="text-muted mb-1" style="font-size:16px;">Pending Quries</p>
 						</div>
 					</div>
@@ -117,7 +120,7 @@
 						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_4.png" alt=""></div>
 
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> 150 </h2>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['user_count']; ?> </h2>
 							<p class="text-muted mb-1" style="font-size:16px;">Total Users</p>
 						</div>
 					</div>

@@ -37,11 +37,11 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Title (Tamil)</label>
-								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo $row->title_ta; ?>">
+								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo $row->title_ta; ?>" maxlength="100">
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Title (English)</label>
-								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo $row->title_en; ?>">
+								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo $row->title_en; ?>" maxlength="100">
 							</div>						
 						</div>
 						

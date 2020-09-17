@@ -59,18 +59,18 @@
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Video Token</label>
-								 <input type="text" class="form-control" id="vToken" name="vToken" placeholder="Video Token" disabled>
+								 <input type="text" class="form-control" id="vToken" name="vToken" placeholder="Video Token" maxlength="50" disabled>
 							</div>
 						</div>	
 
 						<div class="form-row">
 						<div class="form-group col-md-6">
 								<label class="col-form-label">Title (Tamil)</label>
-								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)">
+								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" maxlength="80" >
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Title (English)</label>
-								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)">
+								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" maxlength="80" >
 							</div>
 							
 							

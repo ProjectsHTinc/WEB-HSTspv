@@ -70,7 +70,7 @@ class Enquiry extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			
 			 $chat_for = $this->input->post('chat_for');
-			 $enqReply = $this->input->post('enqReply');
+			 $enqReply = $this->db->escape_str($this->input->post('enqReply'));
 
 			$datas = $this->enquirymodel->enquiry_update($chat_for,$enqReply,$user_id);
 			$response_messge = array('status'=>$datas['status'],'text' => $datas['text'],'class' => $datas['class']);		

@@ -24,9 +24,9 @@ class Admin extends CI_Controller {
 	}
 
 	public function login_check(){
-
-		$username=$this->input->post('username');
-		$password=$this->input->post('password');
+		
+		$username=$this->db->escape_str($this->input->post('username'));
+		$password=$this->db->escape_str($this->input->post('password'));
 		
 		$result = $this->adminmodel->login($username,$password);
 		
@@ -69,7 +69,7 @@ class Admin extends CI_Controller {
 	
 	public function reset_password(){
 		
-		$user_name=$this->input->post('user_name');
+		$user_name=$this->db->escape_str($this->input->post('user_name'));
 		$result = $this->adminmodel->forgot_password($user_name);
 
 		if($result['status']=='Updated'){
@@ -84,22 +84,7 @@ class Admin extends CI_Controller {
 	}
 
 	
-	public function dashboard()
-	{
-		$datas=$this->session->userdata();
-		$user_id=$this->session->userdata('user_id');
-		$user_type=$this->session->userdata('user_type');
-		
-		if($user_type==1 || $user_type==2){
-			//$datas['res'] = $this->adminmodel->dashboard();
-			$this->load->view('admin/header');
-			//$this->load->view('dashboard',$datas);
-			$this->load->view('admin/dashboard');
-			$this->load->view('admin/footer');
-		}else {
-			redirect(base_url().'admin/');
-		}
-	}
+
 	
 	public function profile(){
 		$datas=$this->session->userdata();
@@ -219,6 +204,21 @@ class Admin extends CI_Controller {
 		}
 	}
 	
+	public function dashboard()
+	{
+		$datas=$this->session->userdata();
+		$user_id=$this->session->userdata('user_id');
+		$user_type=$this->session->userdata('user_type');
+		
+		if($user_type==1 || $user_type==2){
+			$datas['widgets'] = $this->adminmodel->dashboard_widgets();
+			$this->load->view('admin/header');
+			$this->load->view('admin/dashboard',$datas);
+			$this->load->view('admin/footer');
+		}else {
+			redirect(base_url().'admin/');
+		}
+	}
 	
 	public function logout(){
 		$datas=$this->session->userdata();
@@ -226,5 +226,7 @@ class Admin extends CI_Controller {
 		$this->session->sess_destroy();
 		redirect(base_url().'admin/');
 	}
+	
+	
 
 }

@@ -39,8 +39,10 @@ class Newsfeed extends CI_Controller {
 			 $vToken = $this->input->post('vToken');
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			 //$tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
 			if(empty($coverImage)){
 				$PicName='';
@@ -55,7 +57,6 @@ class Newsfeed extends CI_Controller {
 			$notification = $this->input->post('notification');
 
 			$data = $this->newsfeedmodel->add_newsfeed($nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$notification,$user_id);
-			//$notification = $this->newsfeedmodel->send_notification($nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id);
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
 			$this->session->set_flashdata('alert', $response_messge);
 			
@@ -127,8 +128,10 @@ class Newsfeed extends CI_Controller {
 			}
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			  //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			 //$tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
 					 
 			if(empty($coverImage)){

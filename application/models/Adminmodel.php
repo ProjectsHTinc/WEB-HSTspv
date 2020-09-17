@@ -192,5 +192,48 @@ Class Adminmodel extends CI_Model
 		 return $data;
 	}
 	
+	function dashboard_widgets(){
+
+			$query_1 = "SELECT * FROM `news_feed` WHERE nf_category_id = '1' OR nf_category_id = '2'";
+			$res_1 = $this->db->query($query_1);
+			$result_1 = $res_1->num_rows();
+			
+			$query_2 = "SELECT * FROM `news_feed` WHERE nf_category_id = '3' OR nf_category_id = '4'";
+			$res_2 = $this->db->query($query_2);
+			$result_2 = $res_2->num_rows();
+
+			$query_3 = "SELECT * FROM spv_chat WHERE admin_seen = '0'";
+			$res_3 = $this->db->query($query_3);
+			$result_3 = $res_2->num_rows();
+			
+			$query_4 = "SELECT * FROM `user_master`";
+			$res_4 = $this->db->query($query_4);
+			$result_4 = $res_4->num_rows();
+			
+			$data  = array(
+					"post_count" => $result_1,
+					"event_count" => $result_2,
+					"enquiry_count" => $result_3,
+					"user_count" => $result_4
+				);
+			return $data;
+	}
+	
+	function dashboard_user_statistics(){
+
+	}
+	
+	function dashboard_user_admin(){
+
+	}
+	
+	function dashboard_gallery(){
+
+	}
+	
+	function dashboard_enquiry(){
+
+	}
+	
 }
 ?>

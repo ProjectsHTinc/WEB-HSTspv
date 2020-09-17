@@ -65,7 +65,13 @@
 											echo '<p style="text-align:right;">';
 											$i =1;
 												foreach ($query->result() as $row) {
-													echo "<a href='#' target='_blank'>$row->file_name</a>";
+													$file_ext = $row->file_ext;
+													if ( $file_ext == 'jpg' || $file_ext == 'JPG' || $file_ext == 'gif' || $file_ext == 'GIF' || $file_ext == 'png' || $file_ext == 'PNG' || $file_ext == 'jpge' || $file_ext == 'JPEG'){
+														$attach_doc_type = "PIC";
+													} else {
+														$attach_doc_type = "DOC";
+													}
+													echo "<a href=".base_url()."assets/enquiry/".$row->file_name." target='_blank'>".$attach_doc_type."</a>";
 													if ($i< $count_rec ) {
 														echo ", ";
 													}
@@ -96,7 +102,7 @@
 								<div class="form-group col-md-6"></div>
 								 <div class="form-row">
 									<div class="form-group col-md-6">
-									 <input type="hidden" name="chat_for" id="chat_for" value="<?php echo $chat_for; ?>">
+									 <input type="hidden" name="chat_for" id="chat_for" value="<?php echo $chat_for; ?>" maxlength="240">
 									<button type="submit" class="btn btn-primary">Submit</button></div>
 									<div class="form-group col-md-6"></div>
 								</div>	
@@ -113,6 +119,15 @@
 
 <script type="text/javascript">
 	$('#menu3').addClass('active');
+
+	var $limitNum = 240;
+	$('textarea[name="enqReply"]').keydown(function() {
+		var $this = $(this);
+
+		if ($this.val().length > $limitNum) {
+			$this.val($this.val().substring(0, $limitNum));
+		}
+	});
 
 	$('#enquiry_update').validate({ // initialize the plugin
 		 rules: {

@@ -33,8 +33,10 @@ class Spv extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 
 			$nfId = $this->input->post('spv_id');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 
 			$data = $this->spvmodel->update_spvlife($nfId,$eDeatil,$tDeatil,$user_id);
 			
@@ -77,8 +79,10 @@ class Spv extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 
 			$nfId = $this->input->post('spv_id');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			//$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 
 			$data = $this->spvmodel->update_spvpolitical($nfId,$eDeatil,$tDeatil,$user_id);
 			
@@ -121,8 +125,10 @@ class Spv extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $nStatus = $this->input->post('nStatus');
 			 
 			$data = $this->spvmodel->add_positions($eTitle,$tTitle,$eDeatil,$tDeatil,$nStatus,$user_id);
@@ -166,8 +172,10 @@ class Spv extends CI_Controller {
 			 $pId = $this->input->post('pos_id');
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			//$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $nStatus = $this->input->post('nStatus');
 			 
 			$data = $this->spvmodel->update_positions($pId,$eTitle,$tTitle,$eDeatil,$tDeatil,$nStatus,$user_id);
@@ -215,8 +223,10 @@ class Spv extends CI_Controller {
 			 $tDesc = $this->input->post('tDesc');
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $nStatus = $this->input->post('nStatus');
 			 
 			$data = $this->spvmodel->add_award($eDesc,$tDesc,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id);
@@ -263,8 +273,10 @@ class Spv extends CI_Controller {
 			 $tDesc = $this->input->post('tDesc');
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			//$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $nStatus = $this->input->post('nStatus');
 			 
 			$data = $this->spvmodel->update_award($eDesc,$tDesc,$aId,$nfDate,$eDeatil,$tDeatil,$nStatus,$user_id);
@@ -309,8 +321,10 @@ class Spv extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			//$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $nStatus = $this->input->post('nStatus');
 			 
 			$data = $this->spvmodel->add_notableworks($eTitle,$tTitle,$eDeatil,$tDeatil,$nStatus,$user_id);
@@ -354,8 +368,10 @@ class Spv extends CI_Controller {
 			 $pId = $this->input->post('nw_id');
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $nStatus = $this->input->post('nStatus');
 			 
 			$data = $this->spvmodel->update_notableworks($pId,$eTitle,$tTitle,$eDeatil,$tDeatil,$nStatus,$user_id);
@@ -400,8 +416,10 @@ class Spv extends CI_Controller {
 
 			 $nfId = $this->input->post('nfId');
 			 $old_banner = $this->input->post('old_banner');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
 					 
 			if(empty($coverImage)){
@@ -460,8 +478,10 @@ class Spv extends CI_Controller {
 
 			 $nfId = $this->input->post('nfId');
 			 $old_banner = $this->input->post('old_banner');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
 					 
 			if(empty($coverImage)){
@@ -516,8 +536,10 @@ class Spv extends CI_Controller {
 			
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			 //$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
 			if(empty($coverImage)){
 				$PicName='';
@@ -576,8 +598,10 @@ class Spv extends CI_Controller {
 			 $old_cource_pic = $this->input->post('old_cource_pic');
 			 $eTitle = $this->input->post('eTitle');
 			 $tTitle = $this->input->post('tTitle');
-			 $eDeatil = $this->input->post('eDeatil');
-			 $tDeatil = $this->input->post('tDeatil');
+			//$eDeatil = $this->input->post('eDeatil');
+			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
+			// $tDeatil = $this->input->post('tDeatil');
+			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
 					 
 			if(empty($coverImage)){

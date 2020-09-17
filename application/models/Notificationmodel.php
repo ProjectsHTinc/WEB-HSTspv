@@ -8,6 +8,8 @@ Class Notificationmodel extends CI_Model
 
 	public function sendNotification($gcm_key,$Title,$Message,$news_pic,$mobiletype)
 	{
+		$pic_url = base_url().'assets/news_feed/'.$news_pic;
+
 		if ($mobiletype =='1'){
 
 		    require_once 'assets/notification/Firebase.php';
@@ -16,11 +18,11 @@ Class Notificationmodel extends CI_Model
             $device_token = explode(",", $gcm_key);
             $push = null;
 
-		//first check if the push has an image with it
+			//first check if the push has an image with it
 		    /*  $push = new Push(
 					$Title,
 					$Message,
-					'https://heylaapp.com/testing/assets/notification/images/event.JPG'
+					$pic_url
 				); */
 
  			//if the push don't have an image give null in place of image

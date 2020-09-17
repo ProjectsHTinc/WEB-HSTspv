@@ -66,7 +66,7 @@
 								<?php  if ($pType == 'V'){ ?>
 									<input type="text" class="form-control" id="vToken" name="vToken" placeholder="Video Token"  value ="<?php echo $nf_details->nf_video_token_id; ?>">
 								<?php } else { ?>
-									<input type="text" class="form-control" id="vToken" name="vToken" placeholder="Video Token" disabled>
+									<input type="text" class="form-control" id="vToken" name="vToken" placeholder="Video Token" maxlength="50" disabled>
 								<?php } ?>
 							</div>
 						</div>	
@@ -74,11 +74,11 @@
 						<div class="form-row">
 						<div class="form-group col-md-6">
 								<label class="col-form-label">Title (Tamil)</label>
-								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo $nf_details->title_ta; ?>">
+								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo $nf_details->title_ta; ?>" maxlength="80">
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Title (English)</label>
-								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo $nf_details->title_en; ?>">
+								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo $nf_details->title_en; ?>" maxlength="80">
 							</div>
 							
 						</div>
