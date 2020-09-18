@@ -41,9 +41,9 @@
 					<h4 class="header-title mt-0 mb-4">No. of Posts</h4>
 
 					<div class="widget-chart-1">
-						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_1.png" alt=""></div>
+						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/plugins/images/widget_1.png" alt=""></div>
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['post_count']; ?> </h2>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets_count['post_count']; ?> </h2>
 							<p class="text-muted mb-1" style="font-size:16px;">Total Posts</p>
 						</div>
 					</div>
@@ -66,9 +66,9 @@
 					<h4 class="header-title mt-0 mb-4">No. of Events</h4>
 
 					<div class="widget-chart-1">
-						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_2.png" alt=""></div>
+						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/plugins/images/widget_2.png" alt=""></div>
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['event_count']; ?> </h2>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets_count['event_count']; ?> </h2>
 							<p class="text-muted mb-1" style="font-size:16px;">Total Events</p>
 						</div>
 					</div>
@@ -91,11 +91,11 @@
 					<h4 class="header-title mt-0 mb-4">No. of Quries</h4>
 
 					<div class="widget-chart-1">
-						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_3.png" alt=""></div>
+						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/plugins/images/widget_3.png" alt=""></div>
 
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['enquiry_count']; ?> </h2>
-							<p class="text-muted mb-1" style="font-size:16px;">Pending Quries</p>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets_count['enquiry_count']; ?> </h2>
+							<p class="text-muted mb-1" style="font-size:16px;"><a href="<?php echo base_url(); ?>enquiry/enquiry_latest/">Pending Quries</a></p>
 						</div>
 					</div>
 				</div>
@@ -117,11 +117,11 @@
 					<h4 class="header-title mt-0 mb-4">No. of Users</h4>
 
 					<div class="widget-chart-1">
-						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/admin/images/widget_4.png" alt=""></div>
+						<div class="widget-chart-box-1 float-left"><img src="<?php echo base_url(); ?>assets/plugins/images/widget_4.png" alt=""></div>
 
 						<div class="widget-detail-1 text-right" style="position: absolute;bottom:35px;right:30px;">
-							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets['user_count']; ?> </h2>
-							<p class="text-muted mb-1" style="font-size:16px;">Total Users</p>
+							<h2 class="font-weight-bold pt-2 mb-1"> <?php echo $widgets_count['user_count']; ?> </h2>
+							<p class="text-muted mb-1" style="font-size:16px;"><a href="<?php echo base_url(); ?>users/application/">Total Users</a></p>
 						</div>
 					</div>
 				</div>
@@ -136,31 +136,14 @@
 
 			<div class="col-xl-8">
 				<div class="card-box widgets_shadows">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
-						</div>
-					</div>
-					<h4 class="header-title mt-0">User Statistics</h4>
-					<div dir="ltr" style="height: 300px;"></div>
+					
+					<h4 class="header-title mt-0" style="padding-bottom:10px;">User Statistics</h4>
+					<div id="top_x_div" style="height: 290px;"></div>
 				</div>
 			</div><!-- end col -->
 
 			<div class="col-xl-4">
 				<div class="card-box widgets_shadows">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
-						</div>
-					</div>
 					<h4 class="header-title mt-0">Photos & Videos</h4>
 					<div class="table-responsive" style="height: 300px;">
 						<table class="table table-hover mb-0">
@@ -220,12 +203,12 @@
 				<div class="card-box widget-user widgets_shadows">
 					<div class="media">
 						<div class="avatar-lg mr-3">
-							<img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" class="img-fluid rounded-circle" alt="user">
+							<img src="<?php echo base_url(); ?>assets/plugins/images/namakaaga_logo.jpg" class="img-fluid rounded-circle" alt="Namakaaga Ullatchi">
 						</div>
 						<div class="media-body overflow-hidden">
 							<h5 class="mt-0 mb-1">Namakaaga Ullatchi</h5>
 							<p class="text-muted mb-2 font-13 text-truncate">My gratitude to all the Corporation Healthcare workers</p>
-							<p><a href="#">View More</a></p>
+							<p><a href="<?php echo base_url(); ?>spv/namakkaga/">View More</a></p>
 						</div>
 					</div>
 				</div>
@@ -235,12 +218,12 @@
 				<div class="card-box widget-user widgets_shadows">
 					<div class="media">
 						<div class="avatar-lg mr-3">
-							<img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" class="img-fluid rounded-circle" alt="user">
+							<img src="<?php echo base_url(); ?>assets/plugins/images/academy_logo.jpg" class="img-fluid rounded-circle" alt="Amma IAS Academy">
 						</div>
 						<div class="media-body overflow-hidden">
 							<h5 class="mt-0 mb-1">Amma IAS Academy</h5>
 							<p class="text-muted mb-2 font-13 text-truncate">This initiative is to remind and reiterate our individual</p>
-							<p><a href="#">View More</a></p>
+							<p><a href="<?php echo base_url(); ?>spv/ammaias/">View More</a></p>
 						</div>
 					</div>
 				</div>
@@ -250,12 +233,12 @@
 				<div class="card-box widget-user widgets_shadows">
 					<div class="media">
 						<div class="avatar-lg mr-3">
-							<img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" class="img-fluid rounded-circle" alt="user">
+							<img src="<?php echo base_url(); ?>assets/plugins/images/nallaram_logo.jpg" class="img-fluid rounded-circle" alt="Nallaramm Trust">
 						</div>
 						<div class="media-body overflow-hidden">
 							<h5 class="mt-0 mb-1">Nallaramm Trust</h5>
 							<p class="text-muted mb-2 font-13 text-truncate">This initiative is to remind and reiterate our individual</p>
-							<p><a href="#">View More</a></p>
+							<p><a href="<?php echo base_url(); ?>newsfeed/list_news/">View More</a></p>
 						</div>
 					</div>
 				</div>
@@ -275,53 +258,30 @@
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
+							<a href="<?php echo base_url(); ?>/users/admin/" class="dropdown-item">View More</a>
 						</div>
 					</div>
 
 					<h4 class="header-title mb-3">Admin User List</h4>
 
 					<div class="inbox-widget" style="height:300px;">
+						<?php $i=1; foreach($user_list as $admin_users){ 
+							$user_status = $admin_users->status;
+						?>
 						
 						<div class="inbox-item">
 							<a href="#">
-								<div class="inbox-item-img"><img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" class="rounded-circle" alt=""></div>
-								<h5 class="inbox-item-author mt-0 mb-1">Chadengle</h5>
-								<p class="inbox-item-text">coderthemes@gmail.com</p>
-								<p class="inbox-item-date" style="color:#03e523;">Active</p>
+								<div class="inbox-item-img"><img src="<?php echo base_url(); ?>assets/users/<?php echo $admin_users->profile_pic; ?>" class="rounded-circle" alt=""></div>
+								<h5 class="inbox-item-author mt-0 mb-1"><?php echo $admin_users->full_name; ?></h5>
+								<p class="inbox-item-text"><?php echo $admin_users->email_id; ?></p>
+								<p class="inbox-item-date <?php if ($user_status == 'Active') { ?>staus_active<?php } else {?>staus_inactive<?php } ?>"><?php echo $admin_users->status; ?></p>
 							</a>
 						</div>
 						
-						<div class="inbox-item">
-							<a href="#">
-								<div class="inbox-item-img"><img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" class="rounded-circle" alt=""></div>
-								<h5 class="inbox-item-author mt-0 mb-1">Tomaslau</h5>
-								<p class="inbox-item-text">coderthemes@gmail.com</p>
-								<p class="inbox-item-date" style="color:#e50303;">Inactive</p>
-							</a>
-						</div>
+						<?php $i++; } ?>
 
-						<div class="inbox-item">
-								<a href="#">
-								<div class="inbox-item-img"><img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" class="rounded-circle" alt=""></div>
-								<h5 class="inbox-item-author mt-0 mb-1">Stillnotdavid</h5>
-								<p class="inbox-item-text">coderthemes@gmail.com</p>
-								<p class="inbox-item-date" style="color:#03e523;">Active</p>
-							</a>
-						</div>
-
-						<div class="inbox-item">
-							<a href="#">
-								<div class="inbox-item-img"><img src="<?php echo base_url(); ?>assets/admin/images/users/user-11.jpg" class="rounded-circle" alt=""></div>
-								<h5 class="inbox-item-author mt-0 mb-1">Kurafire</h5>
-								<p class="inbox-item-text">coderthemes@gmail.com</p>
-								<p class="inbox-item-date" style="color:#03e523;">Active</p>
-							</a>
-						</div>
-
-						
 					</div>
-					<div style="text-align:center;font-weight:bold;"><a href="#">View More</a></div>
+					<div style="text-align:center;font-weight:bold;"><a href="<?php echo base_url(); ?>/users/admin/">View More</a></div>
 				</div>
 			</div><!-- end col -->
 
@@ -333,13 +293,15 @@
 						</a>
 						<div class="dropdown-menu dropdown-menu-right">
 							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
+							<a href="<?php echo base_url(); ?>enquiry/enquiry_latest/" class="dropdown-item">View More</a>
 						</div>
 					</div>
 
 					<h4 class="header-title mt-0 mb-3">Latest Query List</h4>
 
 					<div class="table-responsive" style="height:300px;">
+					
+					
 						<table class="table table-hover mb-0">
 							<thead>
 							<tr>
@@ -350,40 +312,32 @@
 							</tr>
 							</thead>
 							<tbody>
+							<?php $i=1; foreach($query_list as $quries){ 
+							
+							// strip tags to avoid breaking any html
+											$string = strip_tags($quries->chat_text);
+											if (strlen($string) > 50) {
+
+												// truncate string
+												$stringCut = substr($string, 0, 50);
+												$endPoint = strrpos($stringCut, ' ');
+
+												//if the string doesn't contain any space then it will cut without word basis.
+												$string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+												$string .= '...';
+											}
+							?>
 								<tr>
-									<td>1</td>
-									<td>Adminto Admin v1</td>
-									<td>01/01/2017</td>
-									<td>Query is another word for question. ... </td>
+									<td><?php echo $i; ?></td>
+									<td><?php echo $quries->full_name; ?></td>
+									<td><?php echo date('d-m-Y', strtotime($quries->created_at)); ?></td>
+									<td><?php echo $string; ?></td>
 								</tr>
-								<tr>
-									<td>2</td>
-									<td>Adminto Frontend v1</td>
-									<td>26/04/2017</td>
-									<td>Query is another word for question. ... </td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Adminto Admin v1</td>
-									<td>01/01/2017</td>
-									<td>Query is another word for question. ... </td>
-								</tr>
-								<tr>
-									<td>2</td>
-									<td>Adminto Frontend v1</td>
-									<td>26/04/2017</td>
-									<td>Query is another word for question. ... </td>
-								</tr>
-								<tr>
-									<td>1</td>
-									<td>Adminto Admin v1</td>
-									<td>01/01/2017</td>
-									<td>Query is another word for question. ... </td>
-								</tr>
+							<?php $i++; } ?>
 							</tbody>
 						</table>
 					</div>
-					<div style="text-align:center;font-weight:bold;"><a href="#">View More</a></div>
+					<div style="text-align:center;font-weight:bold;"><a href="<?php echo base_url(); ?>enquiry/enquiry_latest/">View More</a></div>
 				</div>
 			</div><!-- end col -->
 
@@ -394,7 +348,43 @@
 
 </div> <!-- content -->
 
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-	$('#menu1').addClass('active');
+
+$('#menu1').addClass('active');
+
+
+google.charts.load('current', {packages: ['corechart', 'bar']});
+google.charts.setOnLoadCallback(drawBasic);
+
+function drawBasic() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Months', 'User Count'],
+          ["January", 44],
+          ["February", 31],
+          ["March", 12],
+          ["April", 10],
+          ['May', 3],
+		  ['June', 13]
+      ]);
+
+      var options = {
+       
+        chartArea: {width: '80%'},
+		legend: { position: 'none' },
+        hAxis: {
+          title: 'Months',
+          minValue: 0
+        },
+        vAxis: {
+          title: 'User Count'
+        }
+      };
+
+      var chart = new google.visualization.ColumnChart(document.getElementById('top_x_div'));
+
+      chart.draw(data, options);
+    }
 </script>
 

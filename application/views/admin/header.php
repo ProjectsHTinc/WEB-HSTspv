@@ -118,7 +118,7 @@
                                 </li>
 								
 								<li id="menu2" class="has-submenu">
-                                    <a href="<?php echo base_url(); ?>newsfeed/list_news/"> <i class="mdi mdi-newspaper"></i>News Feed <div class="arrow-down"></div></a>
+                                    <a href="<?php echo base_url(); ?>newsfeed/list_news/"> <i class="mdi mdi-newspaper-variant"></i>News Feed <div class="arrow-down"></div></a>
                                     <ul class="submenu">
                                         <li>
                                             <a href="<?php echo base_url(); ?>newsfeed/">Add News Feed</a>
@@ -130,7 +130,7 @@
                                 </li>
 
 								<li id="menu3" class="has-submenu">
-                                    <a href="<?php echo base_url(); ?>enquiry/enquiry_history/"> <i class="mdi mdi-comment-question-outline"></i>Enquiry  <div class="arrow-down"></div></a>
+                                    <a href="<?php echo base_url(); ?>enquiry/enquiry_history/"> <i class="mdi mdi-message-text"></i>Enquiry  <div class="arrow-down"></div></a>
                                     <ul class="submenu">
                                         <li>
                                             <a href="<?php echo base_url(); ?>enquiry/enquiry_latest/">Latest Enquiry</a>
@@ -142,7 +142,7 @@
                                 </li>
                                
 							  <li id="menu4" class="has-submenu">
-                                    <a href="<?php echo base_url(); ?>spv/"> <i class="mdi mdi-invert-colors"></i>About SPV  <div class="arrow-down"></div></a>
+                                    <a href="<?php echo base_url(); ?>spv/"> <i class="mdi mdi-account"></i>About SPV  <div class="arrow-down"></div></a>
                                     <ul class="submenu megamenu">
                                         <li>
                                             <ul>
@@ -181,7 +181,7 @@
                                 </li>
 								
 								 <li id="menu5" class="has-submenu">
-                                    <a href="<?php echo base_url(); ?>party/history/"> <i class="mdi mdi-castle"></i>About Party  <div class="arrow-down"></div></a>
+                                    <a href="<?php echo base_url(); ?>party/history/"> <i class="mdi mdi-alpha-p-circle-outline"></i>About Party  <div class="arrow-down"></div></a>
                                     <ul class="submenu">
 										<li>
                                             <a href="<?php echo base_url(); ?>party/history/">History</a>
@@ -196,7 +196,7 @@
                                 </li>
 <?php if ($user_type =='1'){ ?>
 								<li id="menu6" class="has-submenu">
-                                    <a href="<?php echo base_url(); ?>users/admin/"> <i class="mdi mdi-account-multiple"></i>User Management  <div class="arrow-down"></div></a>
+                                    <a href="<?php echo base_url(); ?>users/admin/"> <i class="mdi mdi-account-group"></i>User Management  <div class="arrow-down"></div></a>
                                     <ul class="submenu">
 										<li>
                                             <a href="<?php echo base_url(); ?>users/admin/">Admin Users</a>

@@ -105,13 +105,15 @@ $endingYear =  date('Y');
                                         </tr>
                                         </thead>
                                         <tbody>
-										<?php $i=1; foreach($result as $rows){ ?>
+										<?php $i=1; foreach($result as $rows){ 
+										$status = $rows->status;
+										?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
 											<td><?php echo $rows->election_year; ?></td>
 											<td><?php echo $rows->party_leader_ta; ?> / <?php echo $rows->party_leader_en; ?></td>
 											<td><?php echo $rows->seats_won; ?></td>
-											<td><?php echo $rows->status; ?></td>
+											<td><span <?php if ($status == 'Active') { ?>class="staus_active"<?php } else {?>class="staus_inactive"<?php } ?>><?php echo $rows->status; ?></span></td>
 											<td style="text-align:center;"><a data-toggle="tooltip" title="View" href="<?php echo base_url(); ?>party/election_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
                                         </tr>
 										<?php $i++; } ?>

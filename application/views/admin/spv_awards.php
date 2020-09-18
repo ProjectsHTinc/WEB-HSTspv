@@ -104,12 +104,14 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-										<?php $i=1; foreach($result as $rows){ ?>
+										<?php $i=1; foreach($result as $rows){ 
+										$status = $rows->status;
+										?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
 											 <td><?php echo date('d-m-Y', strtotime($rows->awards_date)); ?></td>
 											<td><?php echo substr_replace($rows->awards_text_en, "...", 100); ?></td>
-											<td><?php echo $rows->status; ?></td>
+											<td><span <?php if ($status == 'Active') { ?>class="staus_active"<?php } else {?>class="staus_inactive"<?php } ?>><?php echo $rows->status; ?></span></td>
 											<td style="text-align:center;"><a data-toggle="tooltip" title="View" href="<?php echo base_url(); ?>spv/award_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
                                         </tr>
 										<?php $i++; } ?>

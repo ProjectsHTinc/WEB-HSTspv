@@ -2025,19 +2025,20 @@ pre code {
 }
 
 .table td,.table th {
-	padding: .85rem;
+	padding: 12px;
 	vertical-align: top;
 	border-top: 1px solid #dee2e6;
 }
 
 .table thead th {
 	vertical-align: bottom;
-	border-bottom: 2px solid #dee2e6;
+	border-bottom: 1px solid #dee2e6;
 	color:#000000;
+	background:#f6f6f6;
 }
 
 .table tbody+tbody {
-	border-top: 2px solid #dee2e6;
+	border-top: 1px solid #dee2e6;
 }
 
 .table-sm td,.table-sm th {
@@ -5573,8 +5574,8 @@ input[type=button].btn-block,input[type=reset].btn-block,input[type=submit].btn-
 .page-item.active .page-link {
 	z-index: 3;
 	color: #fff;
-	background-color: #71b6f9;
-	border-color: #71b6f9;
+	background-color: #1159A8;
+	border-color: #1159A8;
 }
 
 .page-item.disabled .page-link {

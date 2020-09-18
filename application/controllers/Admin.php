@@ -211,7 +211,9 @@ class Admin extends CI_Controller {
 		$user_type=$this->session->userdata('user_type');
 		
 		if($user_type==1 || $user_type==2){
-			$datas['widgets'] = $this->adminmodel->dashboard_widgets();
+			$datas['widgets_count'] = $this->adminmodel->dashboard_widgets();
+			$datas['user_list'] = $this->adminmodel->dashboard_user_admin();
+			$datas['query_list'] = $this->adminmodel->dashboard_enquiry();
 			$this->load->view('admin/header');
 			$this->load->view('admin/dashboard',$datas);
 			$this->load->view('admin/footer');

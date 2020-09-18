@@ -224,7 +224,9 @@ Class Adminmodel extends CI_Model
 	}
 	
 	function dashboard_user_admin(){
-
+		$query = "SELECT * FROM admin_user_master WHERE id!='1' ORDER BY id DESC LIMIT 5";
+		$res = $this->db->query($query);
+		return $result=$res->result();
 	}
 	
 	function dashboard_gallery(){
@@ -232,7 +234,9 @@ Class Adminmodel extends CI_Model
 	}
 	
 	function dashboard_enquiry(){
-
+		$query="SELECT B.full_name, A.* FROM spv_chat A, user_master B WHERE A.chat_for = B.id AND A.admin_seen = '0' ORDER BY A.id DESC LIMIT 5";
+		$res=$this->db->query($query);
+		return $result=$res->result();
 	}
 	
 }

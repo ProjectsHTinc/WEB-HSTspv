@@ -6094,3 +6094,13 @@ div.hopscotch-bubble .hopscotch-content {
     z-index: 3;
 }
 
+.staus_active {
+    color: #03c51a !important;
+    font-weight: bold;
+}
+
+.staus_inactive {
+    color: #e40303 !important;
+    font-weight: bold;
+}
+
