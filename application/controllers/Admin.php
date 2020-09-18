@@ -214,6 +214,7 @@ class Admin extends CI_Controller {
 			$datas['widgets_count'] = $this->adminmodel->dashboard_widgets();
 			$datas['user_list'] = $this->adminmodel->dashboard_user_admin();
 			$datas['query_list'] = $this->adminmodel->dashboard_enquiry();
+			$datas['gallery_list'] = $this->adminmodel->dashboard_gallery();
 			$this->load->view('admin/header');
 			$this->load->view('admin/dashboard',$datas);
 			$this->load->view('admin/footer');

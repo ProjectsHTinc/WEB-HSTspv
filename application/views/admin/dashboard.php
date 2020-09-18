@@ -156,38 +156,25 @@
 							</tr>
 							</thead>
 							<tbody>
+							<?php $i=1; foreach($gallery_list as $gallery)	{ 
+									$category_name = $gallery->category_name;
+									$category_id = $gallery->id;
+									
+									$sQuery = "SELECT * FROM news_feed WHERE `nf_category_id` = '$category_id' AND nf_profile_type = 'V'";
+									$q_result = $this->db->query($sQuery);
+									$video_count = $q_result->num_rows();
+									
+									$sQuery = "SELECT * FROM nf_image_gallery WHERE `nf_category_id` = '$category_id'";
+									$q_result = $this->db->query($sQuery);
+									$image_count = $q_result->num_rows();
+							?>
 								<tr>
-									<td>1</td>
-									<td>Local News</td>
-									<td>50</td>
-									<td>20</td>
+									<td><?php echo $i; ?></td>
+									<td><?php echo $category_name; ?></td>
+									<td><?php echo $image_count; ?></td>
+									<td><?php echo $video_count; ?></td>
 								</tr>
-								<tr>
-									<td>2</td>
-									<td>State News</td>
-									<td>50</td>
-									<td>20</td>
-								</tr>
-								<tr>
-									<td>3</td>
-									<td>Local Events</td>
-									<td>50</td>
-									<td>20</td>
-								</tr>
-								<tr>
-									<td>4</td>
-									<td>State Events</td>
-									<td>50</td>
-									<td>20</td>
-								</tr>
-								<tr>
-									<td>5</td>
-									<td>Social Initiatives</td>
-									<td>50</td>
-									<td>20</td>
-								</tr>
-								
-
+							<?php $i++;  } ?>
 							</tbody>
 						</table>
 					</div>

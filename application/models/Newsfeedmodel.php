@@ -99,18 +99,31 @@ Class Newsfeedmodel extends CI_Model
 		$enc_newsid =  base64_encode($news_id*98765);
 		$count_picture=count($file_name);
 
+			$sQuery = "SELECT nf_category_id FROM news_feed WHERE id = '$news_id'";
+			$result = $this->db->query($sQuery);
+			if($result->num_rows()>0)
+			{
+				foreach ($result->result() as $rows)
+				{
+					$category_id = $rows->nf_category_id;
+				}
+			}
+			
+
+
           for($i=0;$i<$count_picture;$i++){
-           $check_batch="SELECT * FROM nf_image_gallery WHERE nf_id='$news_id'";
-           $res=$this->db->query($check_batch);
-            $res->num_rows();
-            if($res->num_rows()>=25){
-				$data=array("status"=>"limit","text"=>"Already Uploaded Maximum Pictures","class"=>"alert-warning","url"=>base_url().'newsfeed/news_gallery/'.$enc_newsid);
-				return $data;
-			}else{
-				$gal_l=$file_name[$i];
-				$gall_img="INSERT INTO nf_image_gallery(nf_id,nf_image,created_at,created_by) VALUES('$news_id','$gal_l',NOW(),'$user_id')";
-				$res_gal   = $this->db->query($gall_img);
-              }
+				$check_batch="SELECT * FROM nf_image_gallery WHERE nf_id='$news_id'";
+				$res=$this->db->query($check_batch);
+			  //$res->num_rows();
+				if($res->num_rows()>=10){
+					$data=array("status"=>"failed","text"=>"Already Uploaded Maximum Pictures","class"=>"alert alert-danger","url"=>base_url().'newsfeed/news_gallery/'.$enc_newsid);
+					return $data;
+					exit;
+				}else{
+					$gal_l=$file_name[$i];
+					$gall_img="INSERT INTO nf_image_gallery(nf_category_id,nf_id,nf_image,created_at,created_by) VALUES('$category_id','$news_id','$gal_l',NOW(),'$user_id')";
+					$res_gal   = $this->db->query($gall_img);
+				  }
             }
 			
 			$update_sql= "UPDATE news_feed SET gallery_status ='1' WHERE id='$news_id'";
@@ -118,10 +131,10 @@ Class Newsfeedmodel extends CI_Model
 			
           if ($res_gal) {
              $data=array("status"=>"success","text"=>"Gallery Added Successfully","class"=>"alert alert-success","url"=>base_url().'newsfeed/news_gallery/'.$enc_newsid);
-              return $data;
+             return $data;
           } else {
-             $data=array("status"=>"failed","text"=>"Gallery Added Error","class"=>"alert-danger","url"=>base_url().'newsfeed/news_gallery/'.$enc_newsid);
-              return $data;
+             $data=array("status"=>"failed","text"=>"Gallery Added Error","class"=>"alert alert-danger","url"=>base_url().'newsfeed/news_gallery/'.$enc_newsid);
+             return $data;
           }
 	}
 	

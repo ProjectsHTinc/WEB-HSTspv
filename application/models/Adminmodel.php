@@ -230,7 +230,9 @@ Class Adminmodel extends CI_Model
 	}
 	
 	function dashboard_gallery(){
-
+		$query = "SELECT * FROM nf_category ORDER BY id LIMIT 5";
+		$res = $this->db->query($query);
+		return $result=$res->result();
 	}
 	
 	function dashboard_enquiry(){
