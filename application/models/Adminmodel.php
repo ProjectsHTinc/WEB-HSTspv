@@ -221,6 +221,23 @@ Class Adminmodel extends CI_Model
 	
 	function dashboard_user_statistics(){
 
+		$query = "SELECT
+						COUNT(*) AS total_users,
+						DATE_FORMAT(created_at, '%M %Y') AS disp_month
+					FROM
+						user_master
+					WHERE
+						PERIOD_DIFF(
+							DATE_FORMAT(NOW(), '%Y%m'),
+							DATE_FORMAT(created_at, '%Y%m')) < 6
+						GROUP BY
+							disp_month
+						ORDER BY
+							disp_month
+						DESC";
+		$res = $this->db->query($query);
+		return $result=$res->result();
+		
 	}
 	
 	function dashboard_user_admin(){

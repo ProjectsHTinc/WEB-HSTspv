@@ -210,4 +210,64 @@ class Users extends CI_Controller {
 	 }
 	}
 	
+	public function application()
+	{
+		$user_id = $this->session->userdata('user_id');
+		$user_type = $this->session->userdata('user_type');
+			
+		if($user_type==1){
+			$datas['user_result'] = $this->usermodel->get_app_users();
+			$this->load->view('admin/header');
+			$this->load->view('admin/user_app',$datas);
+			$this->load->view('admin/footer');
+		}else {
+			redirect(base_url().'admin/');
+		}
+	}
+	
+	public function app_user_details()
+	{
+		$datas=$this->session->userdata();
+		
+		$user_id=$this->session->userdata('user_id');
+		$user_type=$this->session->userdata('user_type');
+		$staff_id=base64_decode($this->uri->segment(3))/98765;
+		
+		$datas['res']=$this->usermodel->app_user_details($staff_id);
+
+		if($user_type==1){
+			$this->load->view('admin/header');
+			$this->load->view('admin/user_app_details',$datas);
+			$this->load->view('admin/footer');
+		}else {
+			redirect(base_url().'admin/');
+		}
+	}
+	
+	
+	public function update_app_user(){
+		$datas=$this->session->userdata();
+		$user_id=$this->session->userdata('user_id');
+		$user_type=$this->session->userdata('user_type');
+
+		if($user_type==1){
+			$staff_id= $this->input->post('staff_id');
+			$status = $this->input->post('nStatus');
+			$data = $this->usermodel->update_app_user($staff_id,$status,$user_id);
+			
+			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
+			$this->session->set_flashdata('alert', $response_messge);
+			
+			$status = $data['status'];
+
+			if ($status == 'success'){
+				redirect(base_url().'users/application/');
+			}
+			else {
+				redirect(base_url().'users/application/');
+			}
+	 } else {
+			redirect(base_url().'admin/');
+	 }
+	}
 }

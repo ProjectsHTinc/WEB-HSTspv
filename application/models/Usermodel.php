@@ -172,5 +172,33 @@ Class Usermodel extends CI_Model
 			}
 			return $data;
 	}
+	
+	
+	function get_app_users(){
+		$query="SELECT * FROM `user_master`";
+		$res=$this->db->query($query);
+		return $result=$res->result();
+	}
+	
+	function app_user_details($staff_id){
+		$query="SELECT * FROM `user_master` WHERE id='$staff_id'";
+		$resultset=$this->db->query($query);
+		return $resultset->result();
+	}
+	
+	
+	function update_app_user($staff_id,$status,$user_id){
+		
+		$update_user="UPDATE user_master SET status='$status',updated_at=NOW(),updated_by='$user_id' WHERE id='$staff_id'";
+		$result_user=$this->db->query($update_user);
+
+
+		if($result_user){
+				$data=array("status"=>"success","text"=>"User Updated Successfully","class"=>"alert alert-success");
+			}else{
+				$data=array("status"=>"error","text"=>"Something went wrong","class"=>"alert alert-danger");
+			}
+			return $data;
+	}
 }
 ?>

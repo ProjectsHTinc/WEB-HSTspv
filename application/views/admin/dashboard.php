@@ -28,16 +28,7 @@
 
 			<div class="col-xl-3 col-md-6">
 				<div class="card-box widgets_shadows" style="height:175px;">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
-						</div>
-					</div>
-
+					
 					<h4 class="header-title mt-0 mb-4">No. of Posts</h4>
 
 					<div class="widget-chart-1">
@@ -53,15 +44,6 @@
 
 			<div class="col-xl-3 col-md-6">
 				<div class="card-box widgets_shadows" style="height:175px;">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
-						</div>
-					</div>
 
 					<h4 class="header-title mt-0 mb-4">No. of Events</h4>
 
@@ -78,16 +60,7 @@
 
 			<div class="col-xl-3 col-md-6">
 				<div class="card-box widgets_shadows" style="height:175px;">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
-						</div>
-					</div>
-
+			
 					<h4 class="header-title mt-0 mb-4">No. of Quries</h4>
 
 					<div class="widget-chart-1">
@@ -104,15 +77,6 @@
 
 			<div class="col-xl-3 col-md-6">
 				<div class="card-box widgets_shadows" style="height:175px;">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="javascript:void(0);" class="dropdown-item">View More</a>
-						</div>
-					</div>
 
 					<h4 class="header-title mt-0 mb-4">No. of Users</h4>
 
@@ -138,7 +102,11 @@
 				<div class="card-box widgets_shadows">
 					
 					<h4 class="header-title mt-0" style="padding-bottom:10px;">User Statistics</h4>
-					<div id="top_x_div" style="height: 290px;"></div>
+					<?php if (count($app_user)>0){ ?>
+						<div id="user_stat" style="height: 290px;"></div>
+					<?php } else {?>
+						<div id="default" style="height: 290px;"></div>
+					<?php } ?>
 				</div>
 			</div><!-- end col -->
 
@@ -235,19 +203,9 @@
 		</div>
 		<!-- end row -->
 
-
 		<div class="row">
 			<div class="col-xl-4">
 				<div class="card-box widgets_shadows">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="<?php echo base_url(); ?>/users/admin/" class="dropdown-item">View More</a>
-						</div>
-					</div>
 
 					<h4 class="header-title mb-3">Admin User List</h4>
 
@@ -274,15 +232,6 @@
 
 			<div class="col-xl-8">
 				<div class="card-box widgets_shadows">
-					<div class="dropdown float-right">
-						<a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
-							<i class="mdi mdi-dots-vertical"></i>
-						</a>
-						<div class="dropdown-menu dropdown-menu-right">
-							<!-- item-->
-							<a href="<?php echo base_url(); ?>enquiry/enquiry_latest/" class="dropdown-item">View More</a>
-						</div>
-					</div>
 
 					<h4 class="header-title mt-0 mb-3">Latest Query List</h4>
 
@@ -347,13 +296,13 @@ google.charts.setOnLoadCallback(drawBasic);
 function drawBasic() {
 
       var data = google.visualization.arrayToDataTable([
-        ['Months', 'User Count'],
-          ["January", 44],
-          ["February", 31],
-          ["March", 12],
-          ["April", 10],
-          ['May', 3],
-		  ['June', 13]
+        ['Months', 'Users'],
+<?php 	
+
+		foreach($app_user as $rows){ 
+			echo "['$rows->disp_month', $rows->total_users],";
+		}
+?>    
       ]);
 
       var options = {
@@ -365,12 +314,10 @@ function drawBasic() {
           minValue: 0
         },
         vAxis: {
-          title: 'User Count'
+          title: 'Users'
         }
       };
-
-      var chart = new google.visualization.ColumnChart(document.getElementById('top_x_div'));
-
+      var chart = new google.visualization.ColumnChart(document.getElementById('user_stat'));
       chart.draw(data, options);
     }
 </script>
