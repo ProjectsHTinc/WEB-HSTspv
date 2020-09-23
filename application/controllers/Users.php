@@ -33,7 +33,7 @@ class Users extends CI_Controller {
 		$user_type=$this->session->userdata('user_type');
 		if($user_type==1){
 				$email=$this->input->post('email');
-				$datas['res']=$this->usermodel->checkemail(strtoupper($email));
+				$datas['res']=$this->usermodel->admin_checkemail($email);
 		}else{
 			redirect(base_url().'admin/');
 		}
@@ -45,7 +45,7 @@ class Users extends CI_Controller {
 		$user_type=$this->session->userdata('user_type');
 		if($user_type==1){
 				$phone=$this->input->post('phone');
-				$datas['res']=$this->usermodel->checkphone($phone);
+				$datas['res']=$this->usermodel->admin_checkphone($phone);
 		}else{
 			redirect(base_url().'admin/');
 		}
