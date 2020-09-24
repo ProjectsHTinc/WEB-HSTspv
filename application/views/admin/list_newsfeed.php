@@ -48,11 +48,23 @@
 										<?php $i=1; foreach($list_news as $rows){ 
 											$status = $rows->status;
 											$nf_profile_type = $rows->nf_profile_type;
+											
+											// strip tags to avoid breaking any html
+											$string = strip_tags($rows->title_ta);
+											if (strlen($string) > 80) {
+
+												// truncate string
+												$stringCut = substr($string, 0, 80);
+												$endPoint = strrpos($stringCut, ' ');
+
+												//if the string doesn't contain any space then it will cut without word basis.
+												$string = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+												$string .= '...';
 										?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
 											<td><?php echo $rows->category_name; ?></td>
-                                            <td><?php echo $rows->title_ta; ?></td>
+                                            <td><?php echo $string; ?></td>
                                             <td><?php echo date('d-m-Y', strtotime($rows->news_date)); ?></td>
                                             <td><span <?php if ($status == 'Active') { ?>class="staus_active"<?php } else {?>class="staus_inactive"<?php } ?>><?php echo $rows->status; ?></span></td>
 											<!--<td style="text-align:center;font-size:22px;"><a data-toggle="tooltip" title="Edit" href="<?php echo base_url(); ?>newsfeed/edit_news/<?php echo base64_encode($rows->id*98765); ?>/"> <i class="mdi mdi-file-document-edit-outline"></i></a> &nbsp;<a data-toggle="tooltip" title="Gallery"  href="<?php echo base_url(); ?>newsfeed/news_gallery/<?php echo base64_encode($rows->id*98765); ?>/"> <i class="mdi mdi-file-image"></i></a></td>-->
