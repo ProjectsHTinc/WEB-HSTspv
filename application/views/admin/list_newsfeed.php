@@ -51,10 +51,10 @@
 											
 											// strip tags to avoid breaking any html
 											$string = strip_tags($rows->title_ta);
-											if (strlen($string) > 80) {
+											if (strlen($string) > 50) {
 
 												// truncate string
-												$stringCut = substr($string, 0, 80);
+												$stringCut = substr($string, 0, 50);
 												$endPoint = strrpos($stringCut, ' ');
 
 												//if the string doesn't contain any space then it will cut without word basis.
