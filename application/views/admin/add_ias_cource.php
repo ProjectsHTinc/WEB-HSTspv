@@ -11,7 +11,7 @@
 					<div class="page-title-right">
 						<ol class="breadcrumb m-0">
 							<li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-							<li class="breadcrumb-item active">Amma IAS Academy Cources</li>
+							<li class="breadcrumb-item active">Amma IAS Academy Courses</li>
 						</ol>
 					</div>
 
@@ -23,7 +23,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card-box">
-				<h4 class="header-title mt-0">Add Cource</h4><hr>
+				<h4 class="header-title mt-0">Add Course</h4><hr>
 <?php if($this->session->flashdata('alert')) { $alert = $this->session->flashdata('alert');?>
 								<div class="<?php echo $alert['class'] ?> alert-dismissable">
 									<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -58,7 +58,7 @@
 						
 						 <div class="form-row">
 							<div class="form-group col-md-6">
-								<label class="col-form-label">Cource Image <span style="color:#f50303;">(900px * 515px)</span></label>
+								<label class="col-form-label">Course Image <span style="color:#f50303;">(900px * 515px)</span></label>
 								<input type="file" class="form-control" id="coverImage" name="coverImage">
 							</div>
 							 
@@ -72,7 +72,7 @@
 						</div>
 					   <div class="form-row">
 							<div class="form-group col-md-6"></div>
-							<div class="form-group col-md-6"><button type="submit" class="btn btn-primary">Submit</button></div>
+							<div class="form-group col-md-6"><button type="submit" class="btn btn-primary btnSubmit">Submit</button></div>
 						</div>	
 					   
 					</form>
@@ -106,11 +106,15 @@ $('#add_newsfeed').validate({ // initialize the plugin
 		  tDeatil: "Enter Tamil Details",
 		  eDeatil: "Enter English Details",
 		  coverImage:{
-				  required:"Select Cource Image",
+				  required:"Select Course Image",
 				  accept:"Please upload .jpg or .png",
 				   filesize:"File must be JPG or PNG, less than 1MB"
 				}
-         }
+         },
+		 submitHandler: function(form) { // <- pass 'form' argument in
+            $(".btnSubmit").attr("disabled", true);
+            form.submit(); // <- use 'form' argument here.
+        }
  });
 
 </script>

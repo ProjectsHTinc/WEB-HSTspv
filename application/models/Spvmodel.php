@@ -273,7 +273,7 @@ Class Spvmodel extends CI_Model
 		$last_id=$this->db->insert_id();
 
 		if($result){
-			$data=array("status"=>"success","text"=>"Cource Added Successfully","class"=>"alert alert-success");
+			$data=array("status"=>"success","text"=>"Course Added Successfully","class"=>"alert alert-success");
 		}else{
 			$data=array("status"=>"error","text"=>"Something went wrong","class"=>"alert alert-danger");
 		}
@@ -309,7 +309,7 @@ Class Spvmodel extends CI_Model
 		$result=$this->db->query($query);
 		
 		if($result){
-			$data=array("status"=>"success","text"=>"Cource Updated Successfully","class"=>"alert alert-success");
+			$data=array("status"=>"success","text"=>"Course Updated Successfully","class"=>"alert alert-success");
 		}else{
 			$data=array("status"=>"error","text"=>"Something went wrong","class"=>"alert alert-danger");
 		}

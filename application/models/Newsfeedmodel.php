@@ -58,10 +58,10 @@ Class Newsfeedmodel extends CI_Model
 		return $result=$res->result();
 	}
 	
-	function update_newsfeed($nfId,$nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id){
+	function update_newsfeed($nfId,$old_cat_id,$old_profile_type,$nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id){
 		
 		$id=base64_decode($nfId)/98765;
-		
+
 		$sQuery = "SELECT * FROM news_feed WHERE id = '$id'";
 		$result = $this->db->query($sQuery);
 		if($result->num_rows()>0)
@@ -75,7 +75,28 @@ Class Newsfeedmodel extends CI_Model
 			$file_to_delete = 'assets/news_feed/'.$cover_image;
 			unlink($file_to_delete);
 		}
-
+		
+		if ($old_profile_type == 'I' && $nfProfile == 'V'){
+			$sQuery = "SELECT * FROM nf_image_gallery WHERE nf_id = '$id'";
+			$result = $this->db->query($sQuery);
+			if($result->num_rows()>0)
+			{
+				foreach ($result->result() as $rows)
+				{
+					$nf_image = $rows->nf_image;
+					$file_to_delete = 'assets/news_feed/'.$nf_image;
+					unlink($file_to_delete);
+				}
+			}
+			$sQuery = "DELETE FROM nf_image_gallery WHERE nf_id = '$id'";
+			$result = $this->db->query($sQuery);
+		}
+		
+		if ($old_cat_id != $nfCategory){
+			$query="UPDATE nf_image_gallery SET nf_category_id='$nfCategory' WHERE nf_id ='$id'";
+			$result=$this->db->query($query);
+		}
+		
 		$query="UPDATE news_feed SET nf_category_id='$nfCategory',nf_profile_type='$nfProfile',news_date='$nfDate',title_ta='$tTitle',title_en='$eTitle',description_ta='$tDeatil', description_en='$eDeatil',nf_cover_image='$PicName',nf_video_token_id='$vToken',status='$nStatus',status='$nStatus',updated_at=NOW(),updated_by='$user_id' WHERE id ='$id'";
 		$result=$this->db->query($query);
 		

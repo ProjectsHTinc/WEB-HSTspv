@@ -77,6 +77,11 @@
  <script type="text/javascript">
  
 $('#menu5').addClass('active');
+jQuery.validator.addMethod("noHTML", function(value, element) {
+    // return true - means the field passed validation
+    // return false - means the field failed validation and it triggers the error
+    return this.optional(element) || /<([^ >]+)[^>]*>.*?<\/\1>|<[^\/]+\/>/ig.test(value);
+}, "No HTML tags are allowed!");
 
 $.validator.addMethod('filesize', function (value, element, param) {
 		return this.optional(element) || (element.files[0].size <= param)
@@ -84,14 +89,18 @@ $.validator.addMethod('filesize', function (value, element, param) {
 	
 $('#history').validate({ // initialize the plugin
      rules: {
-		 tDeatil:{required:true },
-		 eDeatil:{required:true },
+		 tDeatil:{required:true},
+		 eDeatil:{required:true},
 		 coverImage:{required:false,accept: "jpg,jpeg,png",filesize: 1048576}
      },
      messages: {
-		  tDeatil: "Enter Tamil Details",
-		  eDeatil: "Enter English Details",
-		  coverImage:{
+		 tDeatil:{
+				  required:"Enter Tamil Details"
+				},
+		eDeatil:{
+				  required:"Enter English Details"
+				}, 
+		coverImage:{
 				  required:"",
 				  accept:"Please upload .jpg or .png",
 				  filesize:"File must be JPG or PNG, less than 1MB"

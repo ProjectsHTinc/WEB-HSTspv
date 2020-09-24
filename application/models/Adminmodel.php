@@ -204,7 +204,7 @@ Class Adminmodel extends CI_Model
 
 			$query_3 = "SELECT * FROM spv_chat WHERE admin_seen = '0'";
 			$res_3 = $this->db->query($query_3);
-			$result_3 = $res_2->num_rows();
+			$result_3 = $res_3->num_rows();
 			
 			$query_4 = "SELECT * FROM `user_master`";
 			$res_4 = $this->db->query($query_4);

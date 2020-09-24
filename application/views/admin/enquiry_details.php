@@ -99,11 +99,14 @@
 									<label class="col-form-label">Admin Reply</label>
 								   <textarea id="enqReply" name='enqReply' class="form-control" rows="5"></textarea>
 								</div>
+							
 								<div class="form-group col-md-6"></div>
+								</div>
 								 <div class="form-row">
 									<div class="form-group col-md-6">
-									 <input type="hidden" name="chat_for" id="chat_for" value="<?php echo $chat_for; ?>" maxlength="240">
-									<button type="submit" class="btn btn-primary">Submit</button></div>
+										<button type="submit" class="btn btn-primary btnSubmit">Submit</button>
+										<input type="hidden" name="chat_for" id="chat_for" value="<?php echo $chat_for; ?>" maxlength="240"><br>
+									</div>
 									<div class="form-group col-md-6"></div>
 								</div>	
 						</div>
@@ -135,7 +138,11 @@
 		 },
 		 messages: {
 			  enqReply: "Please Enter Replay Message",
-			 }
+			 },
+		 submitHandler: function(form) { // <- pass 'form' argument in
+            $(".btnSubmit").attr("disabled", true);
+            form.submit(); // <- use 'form' argument here.
+        }
 	 });
 </script>
 		

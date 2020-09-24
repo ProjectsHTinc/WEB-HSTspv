@@ -50,7 +50,7 @@
                                         <p> <a href="<?php echo base_url(); ?>admin/forgot_password"  style="color:#1159a8;font-weight:bold;"><i class="fa fa-lock mr-1"></i>Forgot your password?</a></p>
                                     </div>
                                     <div class="form-group mb-0 text-center">
-                                        <button class="btn btn-primary btn-block" type="submit"> Log In </button>
+                                        <button class="btn btn-primary btn-block" type="submit"> Login </button>
                                     </div>
                                 </form>
                             </div> <!-- end card-body -->

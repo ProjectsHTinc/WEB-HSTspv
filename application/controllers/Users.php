@@ -58,11 +58,13 @@ class Users extends CI_Controller {
 		$user_type = $this->session->userdata('user_type');
 			
 		if($user_type==1){
-			 $name = $this->input->post('name');
+			 //$name = $this->input->post('name');
+			 $name = $this->db->escape_str($this->input->post('name'));
 			 $email = $this->input->post('email');
 			 $phone = $this->input->post('phone');
 			 $gender = $this->input->post('gender');
-			 $qualification = $this->input->post('qualification');
+			 //$qualification = $this->input->post('qualification');
+			 $qualification = $this->db->escape_str($this->input->post('qualification'));
 			 $idProoftype = $this->input->post('idProoftype');
 			 
 			$idFile = $_FILES["idFile"]["name"];
@@ -86,7 +88,8 @@ class Users extends CI_Controller {
 				$coverpic = $uploaddir.$PicName;
 				move_uploaded_file($_FILES['profilePic']['tmp_name'], $coverpic);
 			}
-			$address = $this->input->post('address');
+			//$address = $this->input->post('address');
+			 $address = $this->db->escape_str($this->input->post('address'));
 			$status = $this->input->post('nStatus');
 			$data = $this->usermodel->add_admin_user($name,$email,$phone,$gender,$qualification,$idProoftype,$fileName,$PicName,$address,$status,$user_id);
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
@@ -162,11 +165,13 @@ class Users extends CI_Controller {
 			$user_old_pic=$this->input->post('user_old_pic');
 			$user_old_file=$this->input->post('user_old_file');
 			
-			 $name = $this->input->post('name');
+			 //$name = $this->input->post('name');
+			 $name = $this->db->escape_str($this->input->post('name'));
 			 $email = $this->input->post('email');
 			 $phone = $this->input->post('phone');
 			 $gender = $this->input->post('gender');
-			 $qualification = $this->input->post('qualification');
+			 //$qualification = $this->input->post('qualification');
+			 $qualification = $this->db->escape_str($this->input->post('qualification'));
 			 $idProoftype = $this->input->post('idProoftype');
 			 
 			$idFile = $_FILES["idFile"]["name"];
@@ -190,7 +195,8 @@ class Users extends CI_Controller {
 				$coverpic = $uploaddir.$PicName;
 				move_uploaded_file($_FILES['profilePic']['tmp_name'], $coverpic);
 			}
-			$address = $this->input->post('address');
+			//$address = $this->input->post('address');
+			$address = $this->db->escape_str($this->input->post('address'));
 			$status = $this->input->post('nStatus');
 			$data = $this->usermodel->update_admin_user($staff_id,$name,$email,$phone,$gender,$qualification,$idProoftype,$fileName,$PicName,$address,$status,$user_id);
 			

@@ -46,7 +46,6 @@
 								<label for="inputCity" class="col-form-label">Select Date</label>
 								<input type="text" class="form-control" placeholder="DD-MM-YYYY" id="nfDate" name="nfDate">
 							</div>
-							
 					</div>
 
 						<div class="form-row">
@@ -108,7 +107,10 @@
 						</div>
 					   <div class="form-row">
 							<div class="form-group col-md-6"></div>
-							<div class="form-group col-md-6"><button type="submit" class="btn btn-primary">Submit</button></div>
+							<div class="form-group col-md-6">
+							<button type="submit" class="btn btn-primary btnSubmit" id="btnSubmit">Submit</button>
+							
+							</div>
 						</div>	
 					   
 					</form>
@@ -121,9 +123,9 @@
 </div> <!-- content -->
 
  <script type="text/javascript">
- 
+  
 $('#menu2').addClass('active');
-
+	
 $.validator.addMethod('filesize', function (value, element, param) {
 		return this.optional(element) || (element.files[0].size <= param)
 	}, 'Check your file size');
@@ -152,7 +154,11 @@ $('#add_newsfeed').validate({ // initialize the plugin
 				  accept:"Please upload .jpg or .png",
 				   filesize:"File must be JPG or PNG, less than 1MB"
 				}
-         }
+         },
+		 submitHandler: function(form) { // <- pass 'form' argument in
+            $(".btnSubmit").attr("disabled", true);
+            form.submit(); // <- use 'form' argument here.
+        }
  });
  
     function EnableDisableTextBox(nfProfile) {

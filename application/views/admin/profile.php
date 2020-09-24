@@ -14,7 +14,7 @@
 					<div class="page-title-right">
 						<ol class="breadcrumb m-0">
 							<li class="breadcrumb-item"><a href="javascript: void(0);">User</a></li>
-							<li class="breadcrumb-item active">Proile Update</li>
+							<li class="breadcrumb-item active">Profile Update</li>
 						</ol>
 					</div>
 
@@ -26,7 +26,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card-box">
-				<h4 class="header-title mt-0">Proile Update</h4><hr>
+				<h4 class="header-title mt-0">Profile Update</h4><hr>
 <?php if($this->session->flashdata('alert')) { $alert = $this->session->flashdata('alert');?>
 
 								<div class="<?php echo $alert['class'] ?> alert-dismissable">
@@ -39,7 +39,7 @@
 						<div class="form-row">
 							<div class="form-group col-md-3">
 								<label class="col-form-label">Full Name</label>
-								<input type="text" class="form-control" placeholder="Full Name" id="name" name="name" value="<?php echo $users->full_name; ?>">
+								<input type="text" class="form-control" placeholder="Full Name" id="name" name="name" value="<?php echo html_escape($users->full_name);?>">
 							</div>
 							<div class="form-group col-md-3">
 								<label class="col-form-label">Email Id</label>
@@ -60,11 +60,11 @@
 
 							<div class="form-group col-md-3">
 								<label class="col-form-label">Qualification </label>
-							   <input type="text" class="form-control" placeholder="Qualification" id="qualification" name="qualification" value="<?php echo $users->qualification; ?>">
+							   <input type="text" class="form-control" placeholder="Qualification" id="qualification" name="qualification" value="<?php echo html_escape($users->qualification);?>">
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Address </label>
-								<input type="text" class="form-control" placeholder="Address" id="address" name="address" value="<?php echo $users->address; ?>">
+								<input type="text" class="form-control" placeholder="Address" id="address" name="address" value="<?php echo html_escape($users->address);?>">
 							</div>
 							<div class="form-group col-md-3">
 								<label class="col-form-label">Profile Picture</label>

@@ -74,11 +74,11 @@
 						<div class="form-row">
 						<div class="form-group col-md-6">
 								<label class="col-form-label">Title (Tamil)</label>
-								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo $nf_details->title_ta; ?>" maxlength="80">
+								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo html_escape($nf_details->title_ta);?>" maxlength="80">
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Title (English)</label>
-								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo $nf_details->title_en; ?>" maxlength="80">
+								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo html_escape($nf_details->title_en);?>" maxlength="80">
 							</div>
 							
 						</div>
@@ -114,7 +114,9 @@
 					   <div class="form-row">
 							<div class="form-group col-md-6"><img src="<?php echo base_url(); ?>assets/news_feed/<?php echo $nf_details->nf_cover_image; ?>"  class="thumb-img img-fluid"></div>
 							 <input type="hidden" name="news_id" id="news_id" value="<?php echo base64_encode($nf_details->id*98765); ?>">
-							  <input type="hidden" name="old_news_pic" id="old_news_pic" class="form-control" value="<?php echo $nf_details->nf_cover_image; ?>">
+							 <input type="hidden" name="old_profile_type" id="old_profile_type" value="<?php echo $nf_details->nf_profile_type; ?>">
+							 <input type="hidden" name="old_news_pic" id="old_news_pic" class="form-control" value="<?php echo $nf_details->nf_cover_image; ?>">
+							 <input type="hidden" name="old_cat_id" id="old_cat_id" class="form-control" value="<?php echo $nf_details->nf_category_id; ?>">
 							<div class="form-group col-md-6"><button type="submit" class="btn btn-primary">Submit</button></div>
 						</div>	
 					   
@@ -163,14 +165,19 @@ $('#add_newsfeed').validate({ // initialize the plugin
  });
  
     function EnableDisableTextBox(nfProfile) {
+		var old_profile_type=document.getElementById("old_profile_type").value;
+		var new_profile_type=document.getElementById("nfProfile").value;
+		
         var selectedValue = nfProfile.options[nfProfile.selectedIndex].value;
         var vToken = document.getElementById("vToken");
         vToken.disabled = selectedValue == 'V' ? false : true;
         if (!vToken.disabled) {
             vToken.focus();
         }
+		if (old_profile_type =='I' && new_profile_type == 'V'){
+			alert ("This post related pictures will be permanently deleted!..");
+		}
+		
     }
-	
-
 </script>
 		

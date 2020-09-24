@@ -110,11 +110,13 @@ class Admin extends CI_Controller {
 			$staff_id= $this->input->post('staff_id');
 			$user_old_pic=$this->input->post('user_old_pic');
 			
-			 $name = $this->input->post('name');
+			 //$name = $this->input->post('name');
+			  $name = $this->db->escape_str($this->input->post('name'));
 			 $email = $this->input->post('email');
 			 $phone = $this->input->post('phone');
 			 $gender = $this->input->post('gender');
-			 $qualification = $this->input->post('qualification');
+			 //$qualification = $this->input->post('qualification');
+			  $qualification = $this->db->escape_str($this->input->post('qualification'));
 
 			$profilePic = $_FILES["profilePic"]["name"];
 			if(empty($profilePic)){
@@ -126,7 +128,8 @@ class Admin extends CI_Controller {
 				$coverpic = $uploaddir.$PicName;
 				move_uploaded_file($_FILES['profilePic']['tmp_name'], $coverpic);
 			}
-			$address = $this->input->post('address');
+			//$address = $this->input->post('address');
+			$address = $this->db->escape_str($this->input->post('address'));
 			
 			$data = $this->adminmodel->profile_update($staff_id,$name,$email,$phone,$gender,$qualification,$PicName,$address,$user_id);
 			

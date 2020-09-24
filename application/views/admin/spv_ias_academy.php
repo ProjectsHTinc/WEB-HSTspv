@@ -80,10 +80,10 @@
 				<div class="card-box">
 				<div class="form-row">		   
 								<div class="form-group col-md-6">
-									<h4 class="page-title">List Cources</h4>	
+									<h4 class="page-title">List Courses</h4>	
 								</div>
 								<div class="form-group col-md-6">
-									<a href="<?php echo base_url(); ?>spv/ias_cource/" class="btn btn-success btn-md waves-effect waves-light mb-3" style="float:right; data-animation="fadein" data-overlayspeed="200" data-overlaycolor="#36404a"><i class="mdi mdi-plus-circle-outline"></i> Add Cources</a>
+									<a href="<?php echo base_url(); ?>spv/ias_cource/" class="btn btn-success btn-md waves-effect waves-light mb-3" style="float:right; data-animation="fadein" data-overlayspeed="200" data-overlaycolor="#36404a"><i class="mdi mdi-plus-circle-outline"></i> Add Courses</a>
 								</div>
 								 
 						</div> 
@@ -91,7 +91,7 @@
                                         <thead>
                                         <tr>
                                             <th width="5%">#</th>
-											<th width="80%">Cource Name</th>
+											<th width="80%">Course Name</th>
 											<th width="10%">Status</th>
                                             <th width="5%">Action</th>
                                         </tr>
@@ -102,9 +102,9 @@
 										?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
-											<td><?php echo $rows->course_title_ta ; ?> / <?php echo $rows->course_title_en ; ?></td>
+											<td><?php echo $rows->course_title_en ; ?></td>
 											<td><span <?php if ($status == 'Active') { ?>class="staus_active"<?php } else {?>class="staus_inactive"<?php } ?>><?php echo $rows->status; ?></span></td>
-											<td style="text-align:center;"><a data-toggle="tooltip" title="View" href="<?php echo base_url(); ?>spv/edit_cource/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
+											<td style="text-align:center;"><a data-toggle="tooltip" title="Edit" href="<?php echo base_url(); ?>spv/edit_cource/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
                                         </tr>
 										<?php $i++; } ?>
                                         </tbody>

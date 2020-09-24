@@ -75,7 +75,7 @@ $endingYear =  date('Y');
 								</select>
 							</div>
 							<div class="form-group col-md-6">
-								<button type="submit" class="btn btn-primary" style="margin-top:38px;">Submit</button>
+								<button type="submit" class="btn btn-primary btnSubmit" style="margin-top:38px;">Submit</button>
 							</div>
 						</div>
 
@@ -114,7 +114,7 @@ $endingYear =  date('Y');
 											<td><?php echo $rows->party_leader_ta; ?> / <?php echo $rows->party_leader_en; ?></td>
 											<td><?php echo $rows->seats_won; ?></td>
 											<td><span <?php if ($status == 'Active') { ?>class="staus_active"<?php } else {?>class="staus_inactive"<?php } ?>><?php echo $rows->status; ?></span></td>
-											<td style="text-align:center;"><a data-toggle="tooltip" title="View" href="<?php echo base_url(); ?>party/election_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
+											<td style="text-align:center;"><a data-toggle="tooltip" title="Edit" href="<?php echo base_url(); ?>party/election_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
                                         </tr>
 										<?php $i++; } ?>
                                         </tbody>
@@ -143,7 +143,11 @@ $('#add_election').validate({ // initialize the plugin
 		  leaderEn: "Enter Party Leader in English",
 		  eYear: "Select Election Year",
 		  nSeats: "Enter No. of Seats Won",
-         }
+         },
+		 submitHandler: function(form) { // <- pass 'form' argument in
+            $(".btnSubmit").attr("disabled", true);
+            form.submit(); // <- use 'form' argument here.
+        }
  });
 
 

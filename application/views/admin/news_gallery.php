@@ -41,7 +41,7 @@
 							</div>
 							<div class="form-group col-md-6">
 								<input type="hidden" name="news_id" value=<?php echo $res_news->id;  ?>>
-								<button type="submit" id="news_gallery" class="btn btn-primary" style="margin-top:37px;">Submit</button>
+								<button type="submit" id="news_gallery"  class="btn btn-primary news_gallery" style="margin-top:37px;">Submit</button>
 							</div>
 						</div>
 
@@ -80,28 +80,29 @@
 <script type="text/javascript">
 	$('#menu2').addClass('active');
 
-		$(document).ready(function() {
-				$(".image-popup").magnificPopup({
-					type: "image",
-					closeOnContentClick: !0,
-					mainClass: "mfp-fade",
-					gallery: {
-						enabled: !0,
-						navigateByImgClick: !0,
-						preload: [0, 1]
-					}
-				})
-			});
+	$(document).ready(function() {
+			$(".image-popup").magnificPopup({
+				type: "image",
+				closeOnContentClick: !0,
+				mainClass: "mfp-fade",
+				gallery: {
+					enabled: !0,
+					navigateByImgClick: !0,
+					preload: [0, 1]
+				}
+			})
+		});
 		
 		
 	$("#news_gallery").click(function() {
-        for (var i = 0; i < $("#news_photos").get(0).files.length; ++i) {
-            var file1 = $("#news_photos").get(0).files[i].name;
 
-            if (file1) {
+        for (var i = 0; i < $("#news_photos").get(0).files.length; ++i) {
+            var nf_gallery = $("#news_photos").get(0).files[i].name;
+
+            if (nf_gallery) {
                 var file_size = $("#news_photos").get(0).files[i].size;
                 if (file_size < 1000000) {
-                    var ext = file1.split('.').pop().toLowerCase();
+                    var ext = nf_gallery.split('.').pop().toLowerCase();
                     if ($.inArray(ext, ['jpg', 'jpeg', 'png']) === -1) {
                         alert("Invalid file extension");
                         return false;
@@ -111,11 +112,15 @@
                     alert("Images size should be less than 1 MB.");
                     return false;
                 }
+				
+				$(".news_gallery").attr("disabled", true);
+				
             } else {
                 alert("Select Gallery image..");
                 return false;
             }
         }
+   
     });
 	
 	function delgal(news_gal_id) {

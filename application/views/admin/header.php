@@ -34,6 +34,7 @@
 		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/jquery.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/jquery.validate.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/additional-methods.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/plugins/js/jquery/jquery-disable-with.js"></script>
 
     </head>
 
@@ -96,7 +97,7 @@
 
                         <!-- LOGO -->
                         <div class="logo-box">
-                            <a href="index.html" class="logo logo-light" style="font-size:30px;color:#ffffff;">
+                            <a href="<?php echo base_url(); ?>/admin" class="logo logo-light" style="font-size:30px;color:#ffffff;">
                                 <span class="logo-lg">SP Velumani</span>
                                 <span class="logo-sm">SPV</span>
                             </a>

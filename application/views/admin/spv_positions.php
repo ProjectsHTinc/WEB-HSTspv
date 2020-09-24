@@ -65,7 +65,7 @@
 								</select>
 							</div>
 							<div class="form-group col-md-6">
-								<button type="submit" class="btn btn-primary" style="margin-top:38px;">Submit</button>
+								<button type="submit" class="btn btn-primary btnSubmit" style="margin-top:38px;">Submit</button>
 							</div>
 						</div>
 
@@ -99,9 +99,9 @@
 										?>
                                         <tr>
                                             <td><?php echo $i; ?></td>
-											<td><?php echo $rows->title_en; ?> / <?php echo $rows->title_ta; ?></td>
+											<td><?php echo $rows->title_en; ?></td>
 											<td><span <?php if ($status == 'Active') { ?>class="staus_active"<?php } else {?>class="staus_inactive"<?php } ?>><?php echo $rows->status; ?></span></td>
-											<td style="text-align:center;"><a data-toggle="tooltip" title="View" href="<?php echo base_url(); ?>spv/position_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
+											<td style="text-align:center;"><a data-toggle="tooltip" title="Edit" href="<?php echo base_url(); ?>spv/position_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
                                         </tr>
 										<?php $i++; } ?>
                                         </tbody>
@@ -130,7 +130,11 @@ $('#add_position').validate({ // initialize the plugin
 		  eTitle: "Enter English Title",
 		  tDeatil: "Enter Tamil Details",
 		  eDeatil: "Enter English Details"
-         }
+         },
+		 submitHandler: function(form) { // <- pass 'form' argument in
+            $(".btnSubmit").attr("disabled", true);
+            form.submit(); // <- use 'form' argument here.
+        }
  });
 
 

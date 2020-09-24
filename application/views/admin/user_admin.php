@@ -134,7 +134,7 @@
 											<td><?php echo $rows->email_id; ?></td>
 											<td><?php echo $rows->phone_number; ?></td>
 											<td><span <?php if ($status == 'Active') { ?>class="staus_active"<?php } else {?>class="staus_inactive"<?php } ?>><?php echo $rows->status; ?></span></td>
-											<td style="text-align:center;"><a data-toggle="tooltip" title="View" href="<?php echo base_url(); ?>users/admin_user_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
+											<td style="text-align:center;"><a data-toggle="tooltip" title="Edit" href="<?php echo base_url(); ?>users/admin_user_details/<?php echo base64_encode($rows->id*98765); ?>/">Edit</a></td>
                                         </tr>
 										<?php $i++; } ?>
                                         </tbody>

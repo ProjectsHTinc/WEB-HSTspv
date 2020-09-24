@@ -12,7 +12,7 @@
 					<div class="page-title-right">
 						<ol class="breadcrumb m-0">
 							<li class="breadcrumb-item"><a href="javascript: void(0);">Admin</a></li>
-							<li class="breadcrumb-item active">Amma IAS Academy Cources</li>
+							<li class="breadcrumb-item active">Amma IAS Academy Courses</li>
 						</ol>
 					</div>
 
@@ -24,7 +24,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card-box">
-				<h4 class="header-title mt-0">Update Cource</h4><hr>
+				<h4 class="header-title mt-0">Update Course</h4><hr>
 <?php if($this->session->flashdata('alert')) { $alert = $this->session->flashdata('alert');?>
 
 								<div class="<?php echo $alert['class'] ?> alert-dismissable">
@@ -38,11 +38,11 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Title (Tamil)</label>
-								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo $cource_details->course_title_ta; ?>" maxlength="100">
+								<input type="text" class="form-control" id="tTitle" name="tTitle" placeholder="Title (Tamil)" value="<?php echo html_escape($cource_details->course_title_ta);?>" maxlength="100">
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Title (English)</label>
-								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo $cource_details->course_title_en; ?>" maxlength="100">
+								<input type="text" class="form-control" id="eTitle" name="eTitle" placeholder="Title (English)" value="<?php echo html_escape($cource_details->course_title_en);?>" maxlength="100">
 							</div>
 							
 						</div>
@@ -61,7 +61,7 @@
 						
 						 <div class="form-row">
 							<div class="form-group col-md-6">
-								<label class="col-form-label">Cover Image <span style="color:#f50303;">(900px * 515px)</span></label>
+								<label class="col-form-label">Course Image <span style="color:#f50303;">(900px * 515px)</span></label>
 								<input type="file" class="form-control" id="coverImage" name="coverImage">
 							</div>
 							 
@@ -112,7 +112,7 @@ $('#add_cource').validate({ // initialize the plugin
 		  tDeatil: "Enter Tamil Details",
 		  eDeatil: "Enter English Details",
 		  coverImage:{
-				  required:"Select Cover Image",
+				  required:"Select Course Image",
 				  accept:"Please upload .jpg or .png",
 				   filesize:"File must be JPG or PNG, less than 1MB"
 				}

@@ -116,7 +116,9 @@ class Newsfeed extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			
 			 $nfId = $this->input->post('news_id');
+			 $old_cat_id = $this->input->post('old_cat_id');
 			 $old_news_pic = $this->input->post('old_news_pic');
+			 $old_profile_type = $this->input->post('old_profile_type');
 			 $nfCategory = $this->input->post('nfCategory');
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
@@ -126,14 +128,16 @@ class Newsfeed extends CI_Controller {
 			}else {
 				$vToken = $this->input->post('vToken');
 			}
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			 //$eTitle = $this->input->post('eTitle');
+			 $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			  $tTitle = $this->db->escape_str($this->input->post('tTitle'));
 			  //$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			 //$tDeatil = $this->input->post('tDeatil');
 			 $tDeatil = $this->db->escape_str($this->input->post('tDeatil'));
 			 $coverImage = $_FILES["coverImage"]["name"];
-					 
+
 			if(empty($coverImage)){
 				$PicName= $old_news_pic;
 			}else{
@@ -146,7 +150,7 @@ class Newsfeed extends CI_Controller {
 			$nStatus = $this->input->post('nStatus');
 
 			
-			$data = $this->newsfeedmodel->update_newsfeed($nfId,$nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id);
+			$data = $this->newsfeedmodel->update_newsfeed($nfId,$old_cat_id,$old_profile_type,$nfCategory,$nfDate,$nfProfile,$vToken,$eTitle,$tTitle,$eDeatil,$tDeatil,$PicName,$nStatus,$user_id);
 			
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
 			$this->session->set_flashdata('alert', $response_messge);

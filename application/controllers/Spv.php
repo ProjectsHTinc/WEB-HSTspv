@@ -123,8 +123,10 @@ class Spv extends CI_Controller {
 		$user_type = $this->session->userdata('user_type');
 			
 		if($user_type==1 || $user_type==2){
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			 //$eTitle = $this->input->post('eTitle');
+			  $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			  $tTitle = $this->db->escape_str($this->input->post('tTitle'));
 			 //$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			// $tDeatil = $this->input->post('tDeatil');
@@ -170,8 +172,11 @@ class Spv extends CI_Controller {
 			
 		if($user_type==1 || $user_type==2){
 			 $pId = $this->input->post('pos_id');
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			//$eTitle = $this->input->post('eTitle');
+			  $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			  $tTitle = $this->db->escape_str($this->input->post('tTitle'));
+			 //$eDeatil = $this->input->post('eDeatil');
 			//$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			// $tDeatil = $this->input->post('tDeatil');
@@ -219,8 +224,10 @@ class Spv extends CI_Controller {
 		$user_type = $this->session->userdata('user_type');
 			
 		if($user_type==1 || $user_type==2){
-			 $eDesc = $this->input->post('eDesc');
-			 $tDesc = $this->input->post('tDesc');
+			 //$eDesc = $this->input->post('eDesc');
+			 $eDesc = $this->db->escape_str($this->input->post('eDesc'));
+			// $tDesc = $this->input->post('tDesc');
+			 $tDesc = $this->db->escape_str($this->input->post('tDesc'));
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
 			 //$eDeatil = $this->input->post('eDeatil');
@@ -269,8 +276,10 @@ class Spv extends CI_Controller {
 			
 		if($user_type==1 || $user_type==2){
 			 $aId = $this->input->post('award_id');
-			 $eDesc = $this->input->post('eDesc');
-			 $tDesc = $this->input->post('tDesc');
+			  //$eDesc = $this->input->post('eDesc');
+			 $eDesc = $this->db->escape_str($this->input->post('eDesc'));
+			// $tDesc = $this->input->post('tDesc');
+			 $tDesc = $this->db->escape_str($this->input->post('tDesc'));
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
 			//$eDeatil = $this->input->post('eDeatil');
@@ -319,8 +328,10 @@ class Spv extends CI_Controller {
 		$user_type = $this->session->userdata('user_type');
 			
 		if($user_type==1 || $user_type==2){
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			 //$eTitle = $this->input->post('eTitle');
+			  $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			  $tTitle = $this->db->escape_str($this->input->post('tTitle'));
 			//$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			// $tDeatil = $this->input->post('tDeatil');
@@ -366,8 +377,10 @@ class Spv extends CI_Controller {
 			
 		if($user_type==1 || $user_type==2){
 			 $pId = $this->input->post('nw_id');
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			 //$eTitle = $this->input->post('eTitle');
+			  $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			 $tTitle = $this->db->escape_str($this->input->post('tTitle'));
 			 //$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			// $tDeatil = $this->input->post('tDeatil');
@@ -534,8 +547,10 @@ class Spv extends CI_Controller {
 		
 		if($user_type==1 || $user_type==2){
 			
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			 //$eTitle = $this->input->post('eTitle');
+			  $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			  $tTitle = $this->db->escape_str($this->input->post('tTitle'));
 			 //$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			// $tDeatil = $this->input->post('tDeatil');
@@ -596,8 +611,10 @@ class Spv extends CI_Controller {
 			
 			 $nfId = $this->input->post('cource_id');
 			 $old_cource_pic = $this->input->post('old_cource_pic');
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			 //$eTitle = $this->input->post('eTitle');
+			  $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			  $tTitle = $this->db->escape_str($this->input->post('tTitle'));
 			//$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			// $tDeatil = $this->input->post('tDeatil');
@@ -657,6 +674,7 @@ class Spv extends CI_Controller {
 		if($user_type==1 || $user_type==2){
 			
 			$sValues = $this->input->post('sValues');
+			//$sValues = $this->db->escape_str($this->input->post('sValues'));
 			$data = $this->spvmodel->update_socialmedia($sValues);
 
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
