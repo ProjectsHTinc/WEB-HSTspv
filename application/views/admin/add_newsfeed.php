@@ -123,9 +123,8 @@
 </div> <!-- content -->
 
  <script type="text/javascript">
-  
 $('#menu2').addClass('active');
-	
+
 $.validator.addMethod('filesize', function (value, element, param) {
 		return this.optional(element) || (element.files[0].size <= param)
 	}, 'Check your file size');
@@ -135,24 +134,24 @@ $('#add_newsfeed').validate({ // initialize the plugin
          nfCategory:{required:true},
          nfDate:{required:true },
 		 vToken:{required:true },
-		 tTitle:{required:true },
-		 eTitle:{required:true },
+		 tTitle:{required:true},
+		 eTitle:{required:true},
 		 tDeatil:{required:true },
-		 eDeatil:{required:true },
+		 eDeatil:{required:true},
 		 coverImage:{required:true,accept: "jpg,jpeg,png",filesize: 1048576}
      },
      messages: {
           nfCategory: "Select Category",
           nfDate: "Select Date",
 		  vToken : "Enter Youtube Video Token ID",
-		  tTitle: "Enter Tamil Title",
-		  eTitle: "Enter English Title",
-		  tDeatil: "Enter Tamil Details",
-		  eDeatil: "Enter English Details",
+		  tTitle: { required:"Enter Tamil Title"},
+		  eTitle: { required:"Enter English Title"},
+		  tDeatil: { required:"Enter Tamil Details"},
+		  eDeatil: { required:"Enter English Details"},
 		  coverImage:{
 				  required:"Select Cover Image",
 				  accept:"Please upload .jpg or .png",
-				   filesize:"File must be JPG or PNG, less than 1MB"
+				  filesize:"File must be JPG or PNG, less than 1MB"
 				}
          },
 		 submitHandler: function(form) { // <- pass 'form' argument in

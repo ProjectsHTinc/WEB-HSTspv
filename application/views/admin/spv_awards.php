@@ -75,7 +75,7 @@
 								</select>
 							</div>
 							<div class="form-group col-md-6">
-								<button type="submit" class="btn btn-primary" style="margin-top:38px;">Submit</button>
+								<button type="submit" class="btn btn-primary btnSubmit" style="margin-top:38px;">Submit</button>
 							</div>
 						</div>
 
@@ -85,10 +85,6 @@
 			</div>
 		</div>
 
-
-
-
-		
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card-box">	
@@ -143,7 +139,11 @@ $('#add_award').validate({ // initialize the plugin
 		  nfDate: "Select Award Date",
 		  tDeatil: "Enter Tamil Details",
 		  eDeatil: "Enter English Details"
-         }
+         },
+	submitHandler: function(form) { // <- pass 'form' argument in
+            $(".btnSubmit").attr("disabled", true);
+            form.submit(); // <- use 'form' argument here.
+        }
  });
 
 

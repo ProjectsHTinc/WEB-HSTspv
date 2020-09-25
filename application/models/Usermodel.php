@@ -73,8 +73,8 @@ Class Usermodel extends CI_Model
 							</html>';
 
 			$smsContent = 'Hi  '.$name.' Your Account Username : '.$email.' Password '.$OTP.'';
-			//$this->mailmodel->sendEmail($email,$subject,$htmlContent);
-			//$this->smsmodel->sendSMS($mobile,$smsContent);
+			$this->mailmodel->sendEmail($email,$subject,$htmlContent);
+			$this->smsmodel->sendSMS($mobile,$smsContent);
 
 			if($result){
 				$data=array("status"=>"success","text"=>"User Details Added Successfully","class"=>"alert alert-success");
@@ -158,8 +158,8 @@ Class Usermodel extends CI_Model
 
 			$smsContent = 'Hi  '.$name.' Your Account Email : '.$email.' is updated.';
 
-			//$this->mailmodel->sendEmail($email,$subject,$htmlContent);
-			//$this->smsmodel->sendSMS($mobile,$smsContent);
+			$this->mailmodel->sendEmail($email,$subject,$htmlContent);
+			$this->smsmodel->sendSMS($mobile,$smsContent);
 		}else {
 			$update_user="UPDATE admin_user_master SET full_name='$name',email_id='$email',phone_number='$phone',gender='$gender',address='$address',qualification='$qualification',profile_pic='$PicName',id_proof_type='$idProoftype',id_proof_file='$fileName',status='$status',updated_at=NOW(),updated_by='$user_id' WHERE id='$staff_id'";
 			$result_user=$this->db->query($update_user);

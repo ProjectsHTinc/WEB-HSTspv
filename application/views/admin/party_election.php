@@ -63,7 +63,7 @@ $endingYear =  date('Y');
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Seats Won</label>
-							   <input type="text" class="form-control" placeholder="No. of Seates Won" id="nSeats" name="nSeats">
+							   <input type="text" class="form-control" placeholder="No. of Seates Won" id="nSeats" name="nSeats" maxlength="4">
 							</div>						
 						</div>				 
 						 <div class="form-row">
@@ -136,13 +136,20 @@ $('#add_election').validate({ // initialize the plugin
 		 leaderTa:{required:true },
 		 leaderEn:{required:true },
 		 eYear:{required:true },
-		 nSeats:{required:true }
+		 nSeats:{
+				required:true, 
+				number:true
+				}
+		 
      },
      messages: {
 		  leaderTa: "Enter Party Leader in Tamil",
 		  leaderEn: "Enter Party Leader in English",
 		  eYear: "Select Election Year",
-		  nSeats: "Enter No. of Seats Won",
+		  nSeats: {
+				required: "Enter No. of Seats",
+				number:"Enter Numbers Only"
+			}
          },
 		 submitHandler: function(form) { // <- pass 'form' argument in
             $(".btnSubmit").attr("disabled", true);

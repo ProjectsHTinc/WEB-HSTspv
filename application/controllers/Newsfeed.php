@@ -36,9 +36,12 @@ class Newsfeed extends CI_Controller {
 			 $newsDate = $this->input->post('nfDate');
 			 $nfDate = date("Y-m-d", strtotime($newsDate));
 			 $nfProfile = $this->input->post('nfProfile');
-			 $vToken = $this->input->post('vToken');
-			 $eTitle = $this->input->post('eTitle');
-			 $tTitle = $this->input->post('tTitle');
+			 //$vToken = $this->input->post('vToken');
+			  $vToken = $this->db->escape_str($this->input->post('vToken'));
+			 //$eTitle = $this->input->post('eTitle');
+			 $eTitle = $this->db->escape_str($this->input->post('eTitle'));
+			 //$tTitle = $this->input->post('tTitle');
+			 $tTitle = $this->db->escape_str($this->input->post('tTitle'));
 			 //$eDeatil = $this->input->post('eDeatil');
 			 $eDeatil = $this->db->escape_str($this->input->post('eDeatil'));
 			 //$tDeatil = $this->input->post('tDeatil');
@@ -126,7 +129,8 @@ class Newsfeed extends CI_Controller {
 			 if ($nfProfile == 'I'){
 				$vToken = "";
 			}else {
-				$vToken = $this->input->post('vToken');
+				//$vToken = $this->input->post('vToken');
+				 $vToken = $this->db->escape_str($this->input->post('vToken'));
 			}
 			 //$eTitle = $this->input->post('eTitle');
 			 $eTitle = $this->db->escape_str($this->input->post('eTitle'));

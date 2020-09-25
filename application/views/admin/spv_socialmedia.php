@@ -39,7 +39,7 @@
 									<div class="form-group row">
                                             <label class="col-sm-3 col-form-label"><?php echo $rows->sm_title; ?></label>
                                             <div class="col-sm-9">
-                                                <input type="text" class="form-control" name="sValues[]" id="sValues" value="<?php echo $rows->sm_url; ?>">
+                                                <input type="text" class="form-control" name="sValues[]" id="sValues" value="<?php echo html_escape($rows->sm_url);?>">
                                             </div>
                                      </div>
 <?php } ?>

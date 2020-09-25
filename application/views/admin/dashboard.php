@@ -103,9 +103,9 @@
 					
 					<h4 class="header-title mt-0" style="padding-bottom:10px;">User Statistics</h4>
 					<?php if (count($app_user)>0){ ?>
-						<div id="user_stat" style="height: 290px;"></div>
+						<div id="user_stat" style="height: 320px;"></div>
 					<?php } else {?>
-						<div id="default" style="height: 290px;"></div>
+						<div id="default" style="height: 320px;"></div>
 					<?php } ?>
 				</div>
 			</div><!-- end col -->
@@ -113,7 +113,7 @@
 			<div class="col-xl-4">
 				<div class="card-box widgets_shadows">
 					<h4 class="header-title mt-0">Photos & Videos</h4>
-					<div class="table-responsive" style="height: 300px;">
+					<div class="table-responsive" style="height: 330px;">
 						<table class="table table-hover mb-0">
 							<thead>
 							<tr>
@@ -213,7 +213,6 @@
 						<?php $i=1; foreach($user_list as $admin_users){ 
 							$user_status = $admin_users->status;
 						?>
-						
 						<div class="inbox-item">
 							<a href="#">
 								<div class="inbox-item-img"><img src="<?php echo base_url(); ?>assets/users/<?php echo $admin_users->profile_pic; ?>" class="rounded-circle" alt=""></div>
@@ -222,9 +221,7 @@
 								<p class="inbox-item-date <?php if ($user_status == 'Active') { ?>staus_active<?php } else {?>staus_inactive<?php } ?>"><?php echo $admin_users->status; ?></p>
 							</a>
 						</div>
-						
 						<?php $i++; } ?>
-
 					</div>
 					<div style="text-align:center;font-weight:bold;"><a href="<?php echo base_url(); ?>/users/admin/">View More</a></div>
 				</div>
@@ -236,8 +233,7 @@
 					<h4 class="header-title mt-0 mb-3">Latest Query List</h4>
 
 					<div class="table-responsive" style="height:300px;">
-					
-					
+				
 						<table class="table table-hover mb-0">
 							<thead>
 							<tr>

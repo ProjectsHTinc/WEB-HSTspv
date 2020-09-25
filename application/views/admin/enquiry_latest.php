@@ -46,7 +46,7 @@
                                         <tbody>
 										<?php $i=1; foreach($latest_enquiry as $rows){ 
 										
-										// strip tags to avoid breaking any html
+											// strip tags to avoid breaking any html
 											$string = strip_tags($rows->chat_text);
 											if (strlen($string) > 80) {
 

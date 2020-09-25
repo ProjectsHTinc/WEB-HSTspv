@@ -37,11 +37,11 @@
 						<div class="form-row">
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Party Leader (Tamil)</label>
-								<input type="text" class="form-control" placeholder="Party Leader Tamil" id="leaderTa" name="leaderTa" value="<?php echo $rows->party_leader_ta; ?>">
+								<input type="text" class="form-control" placeholder="Party Leader Tamil" id="leaderTa" name="leaderTa" value="<?php echo html_escape($rows->party_leader_ta); ?>">
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Party Leader (English)</label>
-							   <input type="text" class="form-control" placeholder="Party Leader English" id="leaderEn" name="leaderEn" value="<?php echo $rows->party_leader_en; ?>">
+							   <input type="text" class="form-control" placeholder="Party Leader English" id="leaderEn" name="leaderEn" value="<?php echo html_escape($rows->party_leader_en); ?>">
 							</div>
 						</div>
 						
@@ -63,7 +63,7 @@ $endingYear =  date('Y');
 							</div>
 							<div class="form-group col-md-6">
 								<label class="col-form-label">Seats Won</label>
-							   <input type="text" class="form-control" placeholder="No. of Seates Won" id="nSeats" name="nSeats" value="<?php echo $rows->seats_won; ?>">
+							   <input type="text" class="form-control" placeholder="No. of Seates Won" id="nSeats" name="nSeats" value="<?php echo $rows->seats_won; ?>" maxlength="4">
 							</div>						
 						</div>				 
 						 <div class="form-row">
@@ -98,14 +98,20 @@ $('#update_election').validate({ // initialize the plugin
 		 leaderTa:{required:true },
 		 leaderEn:{required:true },
 		 eYear:{required:true },
-		 nSeats:{required:true }
+		 nSeats:{
+				required:true, 
+				number:true
+				}
      },
      messages: {
 		  leaderTa: "Enter Party Leader in Tamil",
 		  leaderEn: "Enter Party Leader in English",
 		  eYear: "Select Election Year",
-		  nSeats: "Enter No. of Seats Won",
-         }
+		  nSeats: {
+				required: "Enter No. of Seats",
+				number:"Enter Numbers Only"
+			}
+         },
  });
 
 

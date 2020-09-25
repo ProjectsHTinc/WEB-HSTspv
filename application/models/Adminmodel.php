@@ -66,8 +66,8 @@ Class Adminmodel extends CI_Model
 			   
 			$smsContent = 'Hi  '.$name.' Your Account Password is Reset. Please Use this '.$OTP.' to login';
 			
-			//$this->mailmodel->sendEmail($to_email,$subject,$htmlContent);
-			//$this->smsmodel->sendSMS($to_phone,$smsContent);
+			$this->mailmodel->sendEmail($to_email,$subject,$htmlContent);
+			$this->smsmodel->sendSMS($to_phone,$smsContent);
 			
 			 $data= array("status" => "Updated");
 				  return $data;
@@ -123,8 +123,8 @@ Class Adminmodel extends CI_Model
 
 			$smsContent = 'Hi  '.$name.' Your Account Email : '.$email.' is updated.';
 
-			//$this->mailmodel->sendEmail($email,$subject,$htmlContent);
-			//$this->smsmodel->sendSMS($mobile,$smsContent);
+			$this->mailmodel->sendEmail($email,$subject,$htmlContent);
+			$this->smsmodel->sendSMS($mobile,$smsContent);
 		}else {
 			$update_user="UPDATE admin_user_master SET full_name='$name',email_id='$email',phone_number='$phone',gender='$gender',address='$address',qualification='$qualification',profile_pic='$PicName',updated_at=NOW(),updated_by='$user_id' WHERE id='$staff_id'";
 			$result_user=$this->db->query($update_user);
@@ -180,8 +180,8 @@ Class Adminmodel extends CI_Model
 			
 			$smsContent = 'Hi  '.$name.' Your Password Updated Sucessfully!';
 			
-			//$this->mailmodel->sendEmail($email,$subject,$htmlContent);
-			//$this->smsmodel->sendSMS($mobile,$smsContent);
+			$this->mailmodel->sendEmail($email,$subject,$htmlContent);
+			$this->smsmodel->sendSMS($mobile,$smsContent);
 		}
 		
 		if ($ex_query) {
@@ -241,13 +241,13 @@ Class Adminmodel extends CI_Model
 	}
 	
 	function dashboard_user_admin(){
-		$query = "SELECT * FROM admin_user_master WHERE id!='1' ORDER BY id DESC LIMIT 5";
+		$query = "SELECT * FROM admin_user_master WHERE id!='1' ORDER BY id DESC LIMIT 4";
 		$res = $this->db->query($query);
 		return $result=$res->result();
 	}
 	
 	function dashboard_gallery(){
-		$query = "SELECT * FROM nf_category ORDER BY id LIMIT 5";
+		$query = "SELECT * FROM nf_category ORDER BY id";
 		$res = $this->db->query($query);
 		return $result=$res->result();
 	}

@@ -135,8 +135,10 @@ class Party extends CI_Controller {
 		$user_type = $this->session->userdata('user_type');
 			
 		if($user_type==1 || $user_type==2){
-			 $leaderTa = $this->input->post('leaderTa');
-			 $leaderEn = $this->input->post('leaderEn');
+			 //$leaderTa = $this->input->post('leaderTa');
+			 $leaderTa = $this->db->escape_str($this->input->post('leaderTa'));
+			 //$leaderEn = $this->input->post('leaderEn');
+			 $leaderEn = $this->db->escape_str($this->input->post('leaderEn'));
 			 $eYear = $this->input->post('eYear');
 			 $nSeats = $this->input->post('nSeats');
 			 $nStatus = $this->input->post('nStatus');
@@ -180,8 +182,10 @@ class Party extends CI_Controller {
 			
 		if($user_type==1 || $user_type==2){
 			 $elect_id = $this->input->post('elect_id');
-			 $leaderTa = $this->input->post('leaderTa');
-			 $leaderEn = $this->input->post('leaderEn');
+			//$leaderTa = $this->input->post('leaderTa');
+			 $leaderTa = $this->db->escape_str($this->input->post('leaderTa'));
+			 //$leaderEn = $this->input->post('leaderEn');
+			 $leaderEn = $this->db->escape_str($this->input->post('leaderEn'));
 			 $eYear = $this->input->post('eYear');
 			 $nSeats = $this->input->post('nSeats');
 			 $nStatus = $this->input->post('nStatus');

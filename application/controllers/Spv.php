@@ -673,8 +673,8 @@ class Spv extends CI_Controller {
 		
 		if($user_type==1 || $user_type==2){
 			
-			$sValues = $this->input->post('sValues');
-			//$sValues = $this->db->escape_str($this->input->post('sValues'));
+			//$sValues = $this->input->post('sValues');
+			$sValues = $this->db->escape_str($this->input->post('sValues'));
 			$data = $this->spvmodel->update_socialmedia($sValues);
 
 			$response_messge = array('status'=>$data['status'],'text' => $data['text'],'class' => $data['class']);
