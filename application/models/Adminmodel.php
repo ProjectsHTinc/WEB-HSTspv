@@ -42,6 +42,7 @@ Class Adminmodel extends CI_Model
 				 $name = $row->full_name;
 				 $user_type = $row->admin_role_type ;
 				 $to_email = $row->email_id ;
+				 $to_phone = $row->phone_number ;
 				}
 				
 			 $digits = 6;
@@ -124,7 +125,7 @@ Class Adminmodel extends CI_Model
 			$smsContent = 'Hi  '.$name.' Your Account Email : '.$email.' is updated.';
 
 			$this->mailmodel->sendEmail($email,$subject,$htmlContent);
-			$this->smsmodel->sendSMS($mobile,$smsContent);
+			$this->smsmodel->sendSMS($phone,$smsContent);
 		}else {
 			$update_user="UPDATE admin_user_master SET full_name='$name',email_id='$email',phone_number='$phone',gender='$gender',address='$address',qualification='$qualification',profile_pic='$PicName',updated_at=NOW(),updated_by='$user_id' WHERE id='$staff_id'";
 			$result_user=$this->db->query($update_user);

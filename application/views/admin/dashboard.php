@@ -214,12 +214,10 @@
 							$user_status = $admin_users->status;
 						?>
 						<div class="inbox-item">
-							<a href="#">
 								<div class="inbox-item-img"><img src="<?php echo base_url(); ?>assets/users/<?php echo $admin_users->profile_pic; ?>" class="rounded-circle" alt=""></div>
 								<h5 class="inbox-item-author mt-0 mb-1"><?php echo $admin_users->full_name; ?></h5>
 								<p class="inbox-item-text"><?php echo $admin_users->email_id; ?></p>
 								<p class="inbox-item-date <?php if ($user_status == 'Active') { ?>staus_active<?php } else {?>staus_inactive<?php } ?>"><?php echo $admin_users->status; ?></p>
-							</a>
 						</div>
 						<?php $i++; } ?>
 					</div>

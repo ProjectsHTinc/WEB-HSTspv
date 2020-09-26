@@ -49,7 +49,14 @@
 			})
 			
 			$(document).ready(function() {
-				$("#datatable").DataTable();
+				
+				$('#datatable').DataTable({
+					"autoWidth": false,
+					"lengthChange": false,
+					"pageLength": 100
+				});
+		
+				
 			});
 			
 		</script>
